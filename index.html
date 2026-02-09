@@ -385,6 +385,55 @@
             text-decoration: underline;
         }
 
+            /* Experiments Section */
+        .experiments-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 1.5rem;
+        }
+
+        .experiment-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            border: 1px solid var(--border);
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .experiment-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
+            border-color: var(--accent);
+        }
+
+        .experiment-card h3 {
+            font-size: 1.1rem;
+            margin-bottom: 0.75rem;
+        }
+
+        .experiment-card p {
+            font-size: 0.9rem;
+            margin-bottom: 1.5rem;
+            flex-grow: 1;
+        }
+
+        .experiment-link {
+            color: var(--accent);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.85rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            transition: gap 0.2s ease;
+        }
+
+        .experiment-link:hover {
+            gap: 0.6rem;
+        }
         /* Skills */
         .skills-grid {
             display: grid;
@@ -546,6 +595,7 @@
                 <li><a href="#education">Education</a></li>
                 <li><a href="#experience">Experience</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#experiments">Experiments</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#resume">Resume</a></li>
             </ul>
@@ -658,6 +708,10 @@
                 <h3>QUADRA: A Counterspeech Generation Model</h3>
                 <p>Co-developed an intent-conditioned counterspeech generation framework leveraging HateBERT and BART. Implemented fusion techniques to integrate hate speech and intent embeddings, achieving superior performance across multiple NLP metrics.</p>
                 <p><strong>Tech:</strong> LLMs, Fine-Tuning, Hugging Face, NLP</p>
+                <a href="https://quadra-counterspeech.vercel.app/" target="_blank">
+                    View Report <i class="fas fa-external-link-alt"></i>
+                </a>
+                <br>
                 <a href="https://github.com/NLP-2025/NLP-Project-CounterSpeech" target="_blank">
                     View on GitHub <i class="fas fa-external-link-alt"></i>
                 </a>
@@ -691,6 +745,51 @@
             </div>
         </section>
 
+
+        <section id="experiments">
+            <h2>Experiments</h2>
+            <p class="subtitle" style="margin-bottom: 2rem;">
+                A collection of research proofs, benchmarks, and smaller technical explorations.
+            </p>
+            
+            <div class="experiments-grid">
+                <div class="experiment-card">
+                    <div>
+                        <h3>Music Genre Classification</h3>
+                        <p>A comparative study of machine learning vs. deep learning architectures (CNN/RCNN) on the GTZAN dataset, achieving 89% accuracy.</p>
+                        <div style="margin-bottom: 1rem; font-size: 0.85rem; color: var(--text-light);">
+                            <span style="margin-right: 10px;"><i class="fas fa-database"></i> GTZAN</span>
+                            <span><i class="fas fa-chart-line"></i> 89% Acc</span>
+                        </div>
+                    </div>
+                    <a href="https://sml-music-genre-classification.vercel.app/" class="experiment-link" target="_blank">
+                        View Research <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="https://github.com/Mehul-Ag20/Music_Genre_Classification" class="experiment-link" target="_blank">
+                        View Code <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+        
+                <div class="experiment-card">
+                    <div>
+                        <h3>ELO-Insights: PL Predictor</h3>
+                        <p>Ensemble ML system (XGBoost, Gradient Boosting) predicting Premier League match outcomes with 77% accuracy across 10 seasons of data.</p>
+                        <div style="margin-bottom: 1rem; font-size: 0.85rem; color: var(--text-light);">
+                            <span style="margin-right: 10px;"><i class="fas fa-futbol"></i> PL 24/25</span>
+                            <span><i class="fas fa-chart-bar"></i> 77% Acc</span>
+                        </div>
+                    </div>
+                    <a href="https://elo-insights.vercel.app/" class="experiment-link" target="_blank">
+                        View Experiments <i class="fas fa-arrow-right"></i>
+                    </a>
+                    <a href="https://github.com/ML-Project-PremierInsights/ELO-Insights" class="experiment-link" target="_blank">
+                        View Code <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+        
+                
+            </div>
+        </section>
         <!-- Skills -->
         <section id="skills">
             <h2>Skills</h2>
