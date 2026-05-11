@@ -1,12 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Projects | Rahul Ramesh Omalur</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Playfair+Display:wght@600;700&display=swap"
+        rel="stylesheet">
     <link rel="stylesheet" href="assets/css/style.css">
     <style>
         /* Make entire card clickable */
@@ -14,12 +17,14 @@
             cursor: pointer;
             transition: transform 0.2s ease, box-shadow 0.2s ease;
         }
+
         .project-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.15);
+            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
         }
     </style>
 </head>
+
 <body>
     <header>
         <div class="container">
@@ -40,9 +45,12 @@
             <div class="project-card" onclick="location.href='https://github.com/NLP-2025/NLP-Project-CounterSpeech'">
                 <h2>QUADRA : A Counterspeech Generation Model</h2>
                 <p>
-                    Co-developed QUADRA, an intent-conditioned counterspeech generation framework leveraging HateBERT and BART for controlled response generation. 
-                    Implemented fusion techniques (Linear, Cross-Attention, Shared Fusion) to integrate hate speech and intent embeddings, and introduced DialoRank for zero-shot evaluation. 
-                    QUADRA achieved superior performance compared to DialoGPT and GPS baselines across multiple NLP metrics.
+                    An intent-conditioned counterspeech generation framework leveraging HateBERT
+                    and BART for controlled response generation.
+                    Implemented fusion techniques (Linear, Cross-Attention, Shared Fusion) to integrate hate speech and
+                    intent embeddings, and introduced DialoRank for zero-shot evaluation.
+                    QUADRA achieved superior performance compared to DialoGPT and GPS baselines across multiple NLP
+                    metrics.
                 </p>
                 <p><b>Technologies & Skills:</b> Large Language Models (LLM), Fine-Tuning, Hugging Face, NLP</p>
             </div>
@@ -50,26 +58,39 @@
             <div class="project-card" onclick="location.href='https://github.com/SDOS-2025/SmartReach-AI'">
                 <h2>SmartReachAI: An Email Campaign Management System</h2>
                 <p>
-                    Developed an AI-driven email automation platform integrating Mistral, Gemma, and a custom Spam Transformer in a RAG framework (PyTorch + Hugging Face) to enable spam-compliant, personalized communications under DPDP Act guidelines. 
-                    Built a scalable backend pipeline with Send Time Optimization (STO) powered by XGBoost and clustering on PostgreSQL. 
-                    Implemented Celery for scheduling, Redis for caching, and a modern Next.js frontend for analytics visualization.
+                    Developed an AI-driven email automation platform integrating Mistral, Gemma, and a custom Spam
+                    Transformer in a RAG framework (PyTorch + Hugging Face) to enable spam-compliant, personalized
+                    communications under DPDP Act guidelines.
+                    Built a scalable backend pipeline with Send Time Optimization (STO) powered by XGBoost and
+                    clustering on PostgreSQL.
+                    Implemented Celery for scheduling, Redis for caching, and a modern Next.js frontend for analytics
+                    visualization.
                 </p>
-                <p><b>Technologies & Skills:</b> Django, Next.js, LLMs, RAG, Agile Project Management, XGBoost, Performance Dashboards</p>
+                <p><b>Technologies & Skills:</b> Django, Next.js, LLMs, RAG, Agile Project Management, XGBoost,
+                    Performance Dashboards</p>
             </div>
 
-            <div class="project-card" onclick="location.href='https://github.com/Vikranth3140/Robo-Bartender'">
-                <h2>Robo Bartender: An AI-Driven Autonomous Bartending System</h2>
+            <div class="project-card" onclick="location.href=''">
+                <h2>SentinelAI - Intrusion Detection System</h2>
                 <p>
-                    An intelligent robotic bartender system that combines advanced computer vision, natural language processing, and precise robotic manipulation to create cocktails through voice commands. The system integrates real-time speech recognition, AI-powered conversation, color-based bottle detection, and robotic arm control to deliver a seamless bartending experience.
+                    A multi-factor Intrusion Detection System fusing face recognition (YuNet+SFace), ByteTrack-based
+                    person tracking, and ST-GCN skeleton-based action recognition into a real-time threat-scoring
+                    pipeline achieving 85.06% identity accuracy and reducing known-subject latency from 51.7ms to
+                    23.9ms.
+                    Deployed end-to-end on Raspberry Pi 4 using ONNX Runtime quantization, cutting memory usage by
+                    40-55% while sustaining real-time local inference.
                 </p>
-                <p><b>Technologies & Skills:</b> LLMs, Groq Inference, ROS, Cobot Arms</p>
+                <p><b>Technologies & Skills:</b>OpenCV, PyTorch, ONNX, Flask, Next.js</p>
             </div>
 
             <div class="project-card" onclick="location.href='https://github.com/Rahul14052004/probabilistic-pundit'">
                 <h2>Probabilistic Pundit: A Multi-Agent LLM Framework for Dream Team Creation in Fantasy Football
                 </h2>
                 <p>
-                    Probabilistic Pundit is an AI-powered system that generates optimized Fantasy Premier League (FPL) squads using a combination of deterministic ranking algorithms and multi-agent Large Language Model reasoning. The project integrates a FastAPI backend, Streamlit frontend, and a production-oriented MLOps pipeline.
+                    Probabilistic Pundit is an AI-powered system that generates optimized Fantasy Premier League (FPL)
+                    squads using a combination of deterministic ranking algorithms and multi-agent Large Language Model
+                    reasoning. The project integrates a FastAPI backend, Streamlit frontend, and a production-oriented
+                    MLOps pipeline.
                 </p>
                 <p><b>Technologies & Skills:</b> LLMs, Cloud-Based Inference, Streamlit, FastAPI</p>
             </div>
@@ -80,14 +101,17 @@
     <footer>
         <div class="container">
             <div class="footer-content">
-                <p>Contact me at <a href="mailto:rahul.omalur14@gmail.com" class="footer__link">rahul.omalur14@gmail.com</a></p>
+                <p>Contact me at <a href="mailto:rahul.omalur14@gmail.com"
+                        class="footer__link">rahul.omalur14@gmail.com</a></p>
                 <div class="social-links">
                     <a href="https://github.com/Rahul14052004" target="_blank" class="footer__link">GitHub</a>
-                    <a href="https://www.linkedin.com/in/rahul-omalur-1a7716285/" target="_blank" class="footer__link">LinkedIn</a>
+                    <a href="https://www.linkedin.com/in/rahul-omalur-1a7716285/" target="_blank"
+                        class="footer__link">LinkedIn</a>
                 </div>
                 <p><a href="index.html" class="footer__link">← Back to Home</a></p>
             </div>
         </div>
     </footer>
 </body>
+
 </html>

@@ -613,7 +613,7 @@
                     intelligence, data science, and software development.
                 </p>
                 <p>
-                    Currently pursuing my undergraduate degree in Computer Science and Artificial Intelligence at IIIT Delhi, 
+                    Completed my undergraduate degree in Computer Science and Artificial Intelligence at IIIT Delhi, 
                     I'm passionate about creating innovative solutions and exploring the endless possibilities that technology offers.
                 </p>
             </div>
@@ -631,13 +631,27 @@
                     <span class="date">May 2025 – Jul 2025</span>
                     <div class="details">
                         <ul>
-                            <li>Preprocessed and analyzed ECG signals and patient metadata using Pandas, scikit-learn, and PyTorch</li>
-                            <li>Built predictive models to assess Coronary Artery Disease (CAD) risk in Indian patients</li>
+                            <li>Tackled a heavily imbalanced clinical dataset (197 CAD cases vs. 22 normal) from hospitals across India, engineering a 92-feature pipeline combining ECG signals and patient metadata to predict Coronary Artery Disease risk</li>
+                            <li>Ran a systematic benchmarking study across 4 classifiers and 19 experiments — best RFC configuration hit 0.87 accuracy and 0.93 F1, while HistGBC surfaced the strongest minority-class sensitivity with a G-score of 0.61</li>
+                            <li>Identified a fundamental clinical trade-off: models with near-perfect overall accuracy were nearly blind to actual CAD cases, informing which model architecture to recommend for real deployment where missing a positive is high-risk</li>
                         </ul>
                     </div>
                 </div>
 
-                <div class="timeline-item" onclick="window.open('https://sbilab.iiitd.edu.in', '_blank')">
+                <div class="timeline-item" onclick="window.open('https://tavlab.iiitd.edu.in', '_blank')">
+                    <h3>TavLab, IIIT Delhi</h3>
+                    <span class="role">Undergraduate Researcher · New Delhi, India</span>
+                    <span class="date">Jan 2026 – May 2026</span>
+                    <div class="details">
+                        <ul>
+                            <li>Conducted a rigorous zero-shot benchmarking study on handwritten medical prescription digitization, evaluating how well modern VLMs can extract antibiotic entities without any task-specific fine-tuning</li>
+                            <li>Built a 1,115-image augmented benchmark from 223 real clinical prescriptions, stress-testing models against motion blur, compression artifacts, and geometric distortion common in clinic-captured photos</li>
+                            <li>Showed that standard binary accuracy is a misleading metric for this task — proposing WAnIOU as a replacement, which exposed GLM-OCR's near-complete failure (≤0.04) despite its 44.93% accuracy score</li>
+                        </ul>
+                    </div>
+                </div>
+
+                <!-- <div class="timeline-item" onclick="window.open('https://sbilab.iiitd.edu.in', '_blank')">
                     <h3>SBILab, IIIT-Delhi</h3>
                     <span class="role">Undergraduate Researcher</span>
                     <span class="date">Jul 2024 – May 2025</span>
@@ -657,7 +671,7 @@
                             </ul>
                         </div>
                     </div>
-                </div>
+                </div> -->
 
                 <div class="timeline-item" onclick="window.open('https://linkedin.com/in/rahul-omalur', '_blank')">
                     <h3>CodePlex Technologies Pvt. Ltd.</h3>
@@ -676,53 +690,57 @@
 
         <!-- Projects -->
         <section id="projects">
-            <h2>Projects</h2>
-            
-            <div class="project-card">
-                <h3>QUADRA: A Counterspeech Generation Model</h3>
-                <p>Co-developed an intent-conditioned counterspeech generation framework leveraging HateBERT and BART. Implemented fusion techniques to integrate hate speech and intent embeddings, achieving superior performance across multiple NLP metrics.</p>
-                <p><strong>Tech:</strong> LLMs, Fine-Tuning, Hugging Face, NLP</p>
-                <a href="https://quadra-counterspeech.vercel.app/" target="_blank">
-                    View Report <i class="fas fa-external-link-alt"></i>
-                </a>
-                <br>
-                <a href="https://github.com/NLP-2025/NLP-Project-CounterSpeech" target="_blank">
-                    View on GitHub <i class="fas fa-external-link-alt"></i>
-                </a>
-            </div>
+    <h2>Projects</h2>
 
-            <div class="project-card">
-                <h3>SmartReachAI: Email Campaign Management System</h3>
-                <p>Developed an AI-driven email automation platform integrating Mistral and Gemma in a RAG framework. Built scalable backend with Send Time Optimization powered by XGBoost and modern Next.js frontend.</p>
-                <p><strong>Tech:</strong> Django, Next.js, LLMs, RAG, XGBoost, Celery, Redis</p>
-                <a href="https://github.com/SDOS-2025/SmartReach-AI" target="_blank">
-                    View on GitHub <i class="fas fa-external-link-alt"></i>
-                </a>
-            </div>
+    <div class="project-card">
+        <h3>QUADRA: Intent-Aware Counterspeech Generation</h3>
+        <p>Co-developed a modular counterspeech framework with a shared HateBERT encoder and 4 intent-specific BART decoders. Proposed DialoRank, a zero-shot reranker achieving BERTScore F1 of 0.871, outperforming DialoGPT by +12.1 ROUGE-1.</p>
+        <p><strong>Tech:</strong> HateBERT, BART, HuggingFace, PyTorch, NLP</p>
+        <a href="https://quadra-counterspeech.vercel.app/" target="_blank">View Report <i class="fas fa-external-link-alt"></i></a>
+        <br>
+        <a href="https://github.com/NLP-2025/NLP-Project-CounterSpeech" target="_blank">View on GitHub <i class="fas fa-external-link-alt"></i></a>
+    </div>
 
-            <div class="project-card">
-                <h3>Robo Bartender: AI-Driven Autonomous Bartending System</h3>
-                <p>Intelligent robotic bartender combining computer vision, NLP, and robotic manipulation to create cocktails through voice commands. Integrates real-time speech recognition and AI-powered conversation.</p>
-                <p><strong>Tech:</strong> LLMs, Groq Inference, ROS, Cobot Arms</p>
-                <a href="https://github.com/Vikranth3140/Robo-Bartender" target="_blank">
-                    View on GitHub <i class="fas fa-external-link-alt"></i>
-                </a>
-            </div>
+    <div class="project-card">
+        <h3>SmartReach AI: Email Campaign Management System</h3>
+        <p>Developed an AI-driven email automation platform integrating Mistral and Gemma in a RAG framework. Built scalable backend with Send Time Optimization powered by XGBoost and modern Next.js frontend.</p>
+        <p><strong>Tech:</strong> Django, Next.js, LLMs, RAG, XGBoost, Celery, Redis</p>
+        <a href="https://smartreachai.rahulomalur.xyz/" target="_blank">View Website <i class="fas fa-external-link-alt"></i></a>
+        <br>
+        <a href="https://github.com/SDOS-2025/SmartReach-AI" target="_blank">View on GitHub <i class="fas fa-external-link-alt"></i></a>
+        
+    </div>
 
-            <div class="project-card">
-                <h3>Probabilistic Pundit: Multi-Agent LLM FPL Dream Team Predictor</h3>
-                <p>AI-powered system generating optimized Fantasy Premier League squads using deterministic ranking and multi-agent LLM reasoning. FastAPI backend with Streamlit frontend.</p>
-                <p><strong>Tech:</strong> LLMs, Cloud-Based Inference, Streamlit, FastAPI</p>
-                <a href="https://probabilistic-pundit.streamlit.app" target="_blank">
-                    View Demo <i class="fas fa-external-link-alt"></i>
-                </a>
-                <br>
-                <a href="https://github.com/Rahul14052004/probabilistic-pundit" target="_blank">
-                    View on GitHub <i class="fas fa-external-link-alt"></i>
-                </a>
-            </div>
-        </section>
+    <div class="project-card">
+        <h3>SentinelAI: Intrusion Detection System</h3>
+        <p>Multi-factor IDS fusing face recognition (YuNet+SFace), ByteTrack person tracking, and ST-GCN action recognition into a real-time threat-scoring pipeline. Deployed on Raspberry Pi 4 via ONNX quantization, cutting memory by 40–55% and reducing latency from 51.7ms to 23.9ms.</p>
+        <p><strong>Tech:</strong> Flask, Redis, MongoDB, OpenCV, PyTorch, ONNX, Next.js</p>
+        <a href="https://github.com/rahulomalur/CV-Project-Intruder-Detection" target="_blank">View on GitHub <i class="fas fa-external-link-alt"></i></a>
+    </div>
 
+    <div class="project-card">
+        <h3>Nexus Agent: AI Network Simulation Analyst</h3>
+        <p>Full-stack natural language interface over AstraSim simulation logs, letting users query and visualize 1,000-run datasets without writing SQL. Schema-aware Text-to-SQL with Groq-powered self-correction achieved 90–100% query accuracy.</p>
+        <p><strong>Tech:</strong> LangGraph, Flask, Next.js, SQLite, Groq, MCP</p>
+        <a href="https://nexusagent.rahulomalur.xyz/" class="experiment-link" target="_blank">
+                        View Website <i class="fas fa-external-link-alt"></i>
+                    </a>
+        <br>
+
+        <a href="https://github.com/rahulomalur/nexus-agent" target="_blank">View on GitHub <i class="fas fa-external-link-alt"></i></a>
+        
+    </div>
+
+    <div class="project-card">
+        <h3>Probabilistic Pundit: Multi-Agent LLM FPL Squad Predictor</h3>
+        <p>Hierarchical multi-agent LLM framework for Fantasy Premier League squad selection, fusing player stats with signals scraped from Reddit and press sources. TOPSIS-based filtering preserved 90%+ point potential; outperformed Gemini 2.5 Flash, Kimi-k2, and a deterministic LP solver.</p>
+        <p><strong>Tech:</strong> LangChain, Groq, TOPSIS, FastAPI, Streamlit</p>
+        <a href="https://probabilistic-pundit.streamlit.app" target="_blank">View Website <i class="fas fa-external-link-alt"></i></a>
+        <br>
+        <a href="https://github.com/Rahul14052004/probabilistic-pundit" target="_blank">View on GitHub <i class="fas fa-external-link-alt"></i></a>
+    </div>
+
+</section>
 
         <section id="experiments">
             <h2>Experiments</h2>
@@ -784,6 +802,21 @@
                         View Experiments <i class="fas fa-arrow-right"></i>
                     </a>
                     <a href="https://github.com/ML-Project-PremierInsights/ELO-Insights" class="experiment-link" target="_blank">
+                        View Code <i class="fas fa-arrow-right"></i>
+                    </a>
+                </div>
+
+                <div class="experiment-card">
+                    <div>
+                        <h3>Robo-Bartender</h3>
+                        <p>An intelligent, fully interactive robotic bartender that blends voice-driven conversation, computer vision, and robotic manipulation to craft cocktails on demand.</p>
+                        <div style="margin-bottom: 1rem; font-size: 0.85rem; color: var(--text-light);">
+                            <span style="margin-right: 10px;"><i class="fas fa-robot"></i> Cobot Arm</span>
+                            <span><i class="fas fa-robot"></i> ROS</span>
+                        </div>
+                    </div>
+    
+                    <a href="https://github.com/Vikranth3140/Robo-Bartender" class="experiment-link" target="_blank">
                         View Code <i class="fas fa-arrow-right"></i>
                     </a>
                 </div>
@@ -928,14 +961,19 @@
         </section>
         <!-- Resume -->
         <section id="resume">
-            <h2>Resume</h2>
-            <div class="resume-download">
-                <p>Download my complete resume for a comprehensive view of my experience and achievements.</p>
-                <a href="assets/css/Rahul_Resume.pdf" class="resume-btn" target="_blank">
-                    <i class="fas fa-download"></i> Download Resume
-                </a>
-            </div>
-        </section>
+    <h2>Resume</h2>
+    <div class="resume-download">
+        <p>Download version that suits the role.</p>
+        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
+            <a href="assets/css/Rahul_Resume_MLE.pdf" class="resume-btn" target="_blank">
+                <i class="fas fa-brain"></i> ML / AI Engineer
+            </a>
+            <a href="assets/css/Rahul_Resume_SDE.pdf" class="resume-btn" target="_blank">
+                <i class="fas fa-code"></i> Software Engineer
+            </a>
+        </div>
+    </div>
+</section>
     </main>
 
     <!-- Footer -->
