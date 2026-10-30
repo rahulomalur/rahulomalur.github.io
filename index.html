@@ -1,1045 +1,410 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rahul Ramesh Omalur</title>
+    <meta name="description" content="Rahul Ramesh Omalur is a machine learning engineer building clinical ML, multi-agent LLM systems and edge computer vision. B.Tech in AI from IIIT Delhi.">
+    <meta property="og:title" content="Rahul Ramesh Omalur · ML Engineer">
+    <meta property="og:description" content="Machine learning systems, from clinical prediction to multi-agent LLMs.">
+    <meta property="og:url" content="https://rahulomalur.xyz/">
+    <meta property="og:image" content="https://rahulomalur.xyz/assets/img/profile_photo.png">
+    <meta property="og:type" content="website">
+    <meta name="theme-color" content="#f5f2ea" media="(prefers-color-scheme: light)">
+    <meta name="theme-color" content="#11110f" media="(prefers-color-scheme: dark)">
+    <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%2316150f'/%3E%3Ctext x='32' y='44' text-anchor='middle' font-family='Georgia,serif' font-style='italic' font-size='34' fill='%23f5f2ea'%3Er%3C/text%3E%3Ccircle cx='46' cy='42' r='4' fill='%23e5531c'/%3E%3C/svg%3E">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <style>
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        :root {
-            --bg: #ffffff;
-            --text: #111111;
-            --text-light: #666666;
-            --border: #e5e5e5;
-            --accent: #000000;
-            --card-bg: #fafafa;
-        }
-
-        [data-theme="dark"] {
-            --bg: #0a0a0a;
-            --text: #e5e5e5;
-            --text-light: #a0a0a0;
-            --border: #2a2a2a;
-            --accent: #ffffff;
-            --card-bg: #1a1a1a;
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        body {
-            font-family: 'Inter', -apple-system, sans-serif;
-            background: var(--bg);
-            color: var(--text);
-            line-height: 1.6;
-            -webkit-font-smoothing: antialiased;
-            transition: background-color 0.3s ease, color 0.3s ease;
-        }
-
-        .container {
-            max-width: 800px;
-            margin: 0 auto;
-            padding: 0 2rem;
-        }
-
-        /* Header */
-        header {
-            padding: 6rem 0 4rem;
-            text-align: center;
-        }
-
-        .profile-img {
-            width: 140px;
-            height: 140px;
-            border-radius: 50%;
-            object-fit: cover;
-            margin-bottom: 2rem;
-            border: 2px solid var(--accent);
-        }
-
-        h1 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 2.5rem;
-            font-weight: 700;
-            margin-bottom: 0.5rem;
-            letter-spacing: -0.03em;
-        }
-
-        .subtitle {
-            color: var(--text-light);
-            font-size: 1.1rem;
-            margin-bottom: 2rem;
-        }
-
-        .social-links {
-            display: flex;
-            gap: 1.5rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        .social-links a {
-            color: var(--text-light);
-            font-size: 1.4rem;
-            transition: all 0.3s ease;
-        }
-
-        .social-links a:hover {
-            color: var(--accent);
-            transform: translateY(-2px);
-        }
-
-        /* Navigation */
-        nav {
-            position: sticky;
-            top: 0;
-            background: rgba(255, 255, 255, 0.95);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border);
-            padding: 1rem 0;
-            margin-bottom: 4rem;
-            z-index: 100;
-            transition: background-color 0.3s ease;
-        }
-
-        [data-theme="dark"] nav {
-            background: rgba(10, 10, 10, 0.95);
-        }
-
-        /* Dark Mode Toggle */
-        .theme-toggle {
-            position: fixed;
-            bottom: 2rem;
-            right: 2rem;
-            width: 60px;
-            height: 60px;
-            border-radius: 50%;
-            background: var(--accent);
-            border: 2px solid var(--border);
-            cursor: pointer;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-            color: var(--bg);
-            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-            transition: all 0.3s ease;
-            z-index: 9999;
-        }
-
-        .theme-toggle:hover {
-            transform: scale(1.15) rotate(15deg);
-            box-shadow: 0 6px 30px rgba(0, 0, 0, 0.4);
-        }
-
-        .theme-toggle:active {
-            transform: scale(0.95);
-        }
-
-        @media (max-width: 768px) {
-            .theme-toggle {
-                bottom: 1.5rem;
-                right: 1.5rem;
-                width: 50px;
-                height: 50px;
-                font-size: 1.25rem;
-            }
-        }
-
-        nav ul {
-            list-style: none;
-            display: flex;
-            justify-content: center;
-            gap: 2.5rem;
-        }
-
-        nav a {
-            color: var(--text-light);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        nav a:hover {
-            color: var(--accent);
-        }
-
-        nav a.active {
-            color: var(--accent);
-        }
-
-        nav a.active::after {
-            content: '';
-            position: absolute;
-            bottom: -1rem;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--accent);
-        }
-
-        /* Sections */
-        section {
-            padding: 4rem 0;
-            border-bottom: 1px solid var(--border);
-        }
-
-        section:last-of-type {
-            border-bottom: none;
-        }
-
-        h2 {
-            font-family: 'Space Grotesk', sans-serif;
-            font-size: 1.8rem;
-            margin-bottom: 2rem;
-            font-weight: 600;
-        }
-
-        h3 {
-            font-weight: 600;
-            font-size: 1.1rem;
-            margin-bottom: 0.5rem;
-        }
-
-        p {
-            color: var(--text-light);
-            margin-bottom: 1rem;
-            line-height: 1.7;
-        }
-
-        /* About */
-        .about-text {
-            max-width: 650px;
-            margin: 0 auto;
-        }
-
-        /* Education */
-        .education-item {
-            display: flex;
-            gap: 1.5rem;
-            margin-bottom: 2.5rem;
-            padding-bottom: 2.5rem;
-            border-bottom: 1px solid var(--border);
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-radius: 8px;
-            padding: 1.5rem;
-            margin-left: -1.5rem;
-            margin-right: -1.5rem;
-        }
-
-        .education-item:hover {
-            background: var(--card-bg);
-            transform: translateX(4px);
-        }
-
-        .education-item:last-child {
-            border-bottom: none;
-            margin-bottom: 0;
-        }
-
-        .education-logo {
-            width: 60px;
-            height: 60px;
-            object-fit: contain;
-            flex-shrink: 0;
-        }
-
-        .education-item p {
-            font-size: 0.95rem;
-        }
-
-        /* Experience Timeline */
-        .timeline {
-            position: relative;
-            padding-left: 2rem;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 0;
-            top: 0;
-            bottom: 0;
-            width: 2px;
-            background: var(--border);
-        }
-
-        .timeline-item {
-            position: relative;
-            margin-bottom: 3rem;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            border-radius: 8px;
-            padding: 1rem;
-            margin-left: -1rem;
-            margin-right: -1rem;
-        }
-
-        .timeline-item:hover {
-            background: var(--card-bg);
-        }
-
-        .timeline-item:last-child {
-            margin-bottom: 0;
-        }
-
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -2.4rem;
-            top: 0.4rem;
-            width: 10px;
-            height: 10px;
-            border-radius: 50%;
-            background: var(--accent);
-            border: 2px solid var(--bg);
-        }
-
-        .role {
-            display: block;
-            color: var(--text-light);
-            font-size: 0.95rem;
-            margin-bottom: 0.25rem;
-        }
-
-        .date {
-            display: block;
-            color: var(--text-light);
-            font-size: 0.85rem;
-            margin-bottom: 1rem;
-        }
-
-        .details ul {
-            list-style: none;
-            padding: 0;
-        }
-
-        .details li {
-            padding-left: 1.5rem;
-            margin-bottom: 0.5rem;
-            position: relative;
-        }
-
-        .details li::before {
-            content: '—';
-            position: absolute;
-            left: 0;
-            color: var(--accent);
-        }
-
-        .project-subitem {
-            margin-top: 1.5rem;
-            padding-top: 1.5rem;
-            border-top: 1px solid var(--border);
-        }
-
-        /* Projects */
-        .project-card {
-            background: var(--card-bg);
-            padding: 2rem;
-            border-radius: 8px;
-            margin-bottom: 2rem;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-        }
-
-        .project-card:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.06);
-        }
-
-        [data-theme="dark"] .project-card:hover {
-            box-shadow: 0 8px 24px rgba(255, 255, 255, 0.05);
-        }
-
-        .project-card h3 {
-            font-size: 1.2rem;
-            margin-bottom: 1rem;
-        }
-
-        .project-card a {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.9rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            margin-top: 0.5rem;
-        }
-
-        .project-card a:hover {
-            text-decoration: underline;
-        }
-
-            /* Experiments Section */
-        .experiments-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 1.5rem;
-        }
-
-        .experiment-card {
-            background: var(--card-bg);
-            padding: 1.5rem;
-            border-radius: 8px;
-            border: 1px solid var(--border);
-            transition: all 0.3s ease;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .experiment-card:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 24px rgba(0, 0, 0, 0.08);
-            border-color: var(--accent);
-        }
-
-        .experiment-card h3 {
-            font-size: 1.1rem;
-            margin-bottom: 0.75rem;
-        }
-
-        .experiment-card p {
-            font-size: 0.9rem;
-            margin-bottom: 1.5rem;
-            flex-grow: 1;
-        }
-
-        .experiment-link {
-            color: var(--accent);
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.85rem;
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            transition: gap 0.2s ease;
-        }
-
-        .experiment-link:hover {
-            gap: 0.6rem;
-        }
-        /* Skills */
-        .skills-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-        }
-
-        .skill-category h3 {
-            margin-bottom: 1.5rem;
-            font-size: 1rem;
-            color: var(--text-light);
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-        }
-
-        .skill-icons {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 1.5rem;
-        }
-
-        .skill-icon {
-            position: relative;
-            cursor: pointer;
-        }
-
-        .skill-icon img {
-            width: 48px;
-            height: 48px;
-            object-fit: contain;
-            transition: all 0.3s ease;
-        }
-
-        .skill-icon:hover img {
-            transform: translateY(-4px) scale(1.1);
-        }
-
-        .skill-icon .tooltip {
-            position: absolute;
-            bottom: -2.5rem;
-            left: 50%;
-            transform: translateX(-50%);
-            background: var(--accent);
-            color: var(--bg);
-            padding: 0.4rem 0.8rem;
-            border-radius: 4px;
-            font-size: 0.75rem;
-            white-space: nowrap;
-            opacity: 0;
-            pointer-events: none;
-            transition: opacity 0.3s ease;
-            font-family: var(--font-main);
-        }
-
-        .skill-icon .tooltip::before {
-            content: '';
-            position: absolute;
-            top: -4px;
-            left: 50%;
-            transform: translateX(-50%);
-            border-left: 4px solid transparent;
-            border-right: 4px solid transparent;
-            border-bottom: 4px solid var(--accent);
-        }
-
-        .skill-icon:hover .tooltip {
-            opacity: 1;
-        }
-
-        /* Resume Download */
-        .resume-download {
-            text-align: center;
-            padding: 3rem;
-            background: var(--card-bg);
-            border-radius: 8px;
-            border: 1px solid var(--border);
-        }
-
-        .resume-btn {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            background: var(--accent);
-            color: var(--bg);
-            padding: 1rem 2rem;
-            text-decoration: none;
-            border-radius: 6px;
-            font-weight: 600;
-            transition: all 0.3s ease;
-            margin-top: 1rem;
-        }
-
-        .resume-btn:hover {
-            opacity: 0.9;
-            transform: translateY(-1px);
-        }
-
-        /* Footer */
-        footer {
-            text-align: center;
-            padding: 4rem 0 3rem;
-            color: var(--text-light);
-            font-size: 0.9rem;
-        }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            .container {
-                padding: 0 1.5rem;
-            }
-
-            h1 {
-                font-size: 2rem;
-            }
-
-            h2 {
-                font-size: 1.5rem;
-            }
-
-            nav ul {
-                gap: 1.5rem;
-                flex-wrap: wrap;
-            }
-
-            .education-item {
-                flex-direction: column;
-            }
-
-            .timeline {
-                padding-left: 1.5rem;
-            }
-
-            .skills-grid {
-                grid-template-columns: 1fr;
-            }
-        }
-    </style>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@400;500;600&family=Geist+Mono:wght@400;500&family=Instrument+Serif:ital@0;1&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="assets/site.css">
+    <script>
+        // Set theme before paint to avoid a flash.
+        (function () {
+            try {
+                var t = localStorage.getItem('theme');
+                if (t === 'light' || t === 'dark') document.documentElement.setAttribute('data-theme', t);
+            } catch (e) {}
+        })();
+    </script>
 </head>
 <body>
-    <!-- Header -->
-    <header>
-        <div class="container">
-            <img src="assets/img/profile_photo.png" alt="Rahul Ramesh Omalur" class="profile-img">
-            <h1>Rahul Ramesh Omalur</h1>
-            <p class="subtitle">CSAI Undergraduate · ML Engineer</p>
-            <div class="social-links">
-                <a href="mailto:rahul.omalur14@gmail.com" aria-label="Email"><i class="fas fa-envelope"></i></a>
-                <a href="https://github.com/rahulomalur" target="_blank" aria-label="GitHub"><i class="fab fa-github"></i></a>
-                <a href="https://linkedin.com/in/rahul-omalur" target="_blank" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+    <a class="skip" href="#main">Skip to content</a>
+
+    <div class="loader" id="loader" aria-hidden="true">
+        <div class="loader-inner">
+            <div class="loader-row mono"><span>training portfolio.pt</span><span id="loaderPct">000%</span></div>
+            <div class="loader-bar"><span id="loaderBar"></span></div>
+            <div class="loader-row mono muted"><span id="loaderEpoch">epoch 0/12</span><span id="loaderLoss">loss 2.4103</span></div>
+        </div>
+    </div>
+
+    <div class="progress" id="progress" aria-hidden="true"></div>
+    <div class="cursor-dot" aria-hidden="true"></div>
+    <div class="cursor-ring" aria-hidden="true"></div>
+
+    <header class="topbar" id="top">
+        <div class="wrap topbar-inner">
+            <a href="#top" class="brand" aria-label="Back to top">
+                <span class="brand-mark">r<span class="dot"></span></span>
+                <span class="brand-name">Rahul Omalur</span>
+            </a>
+            <nav class="nav" id="nav" aria-label="Sections">
+                <a href="#work">Work</a>
+                <a href="#experience">Experience</a>
+                <a href="#experiments">Experiments</a>
+                <a href="#toolkit">Toolkit</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
+            </nav>
+            <div class="topbar-actions">
+                <button class="icon-btn" id="themeToggle" type="button" aria-label="Toggle dark mode">
+                    <svg class="i-moon" viewBox="0 0 24 24" aria-hidden="true"><path d="M20 14.5A8 8 0 0 1 9.5 4a8 8 0 1 0 10.5 10.5Z"/></svg>
+                    <svg class="i-sun" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+                </button>
+                <button class="icon-btn menu-btn" id="menuToggle" type="button" aria-label="Open menu" aria-expanded="false" aria-controls="nav">
+                    <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M4 8h16M4 16h16"/></svg>
+                </button>
             </div>
         </div>
     </header>
 
-    <!-- Navigation -->
-    <nav>
-        <div class="container">
-            <ul>
-                <li><a href="#about">About</a></li>
-                <li><a href="#education">Education</a></li>
-                <li><a href="#experience">Experience</a></li>
-                <li><a href="#projects">Projects</a></li>
-                <li><a href="#experiments">Experiments</a></li>
-                <li><a href="#skills">Skills</a></li>
-                <li><a href="#resume">Resume</a></li>
-            </ul>
-        </div>
-    </nav>
-
-    <main class="container">
-        <!-- About -->
-        <section id="about">
-            <h2>About</h2>
-            <div class="about-text">
-                <p>
-                    I enjoy building machine learning models, developing applications, and exploring how technology intersects 
-                    with my interests in music, sports, and movies. My work spans across various domains including artificial 
-                    intelligence, data science, and software development.
+    <main id="main">
+        <!-- Hero -->
+        <section class="hero-shell">
+        <canvas class="net" id="net" aria-hidden="true"></canvas>
+        <section class="hero wrap">
+            <div class="hero-text">
+                <p class="eyebrow reveal"><span class="pulse" aria-hidden="true"></span>Open to ML engineering roles</p>
+                <h1 class="reveal" aria-label="Rahul Ramesh Omalur builds machine learning systems that survive contact with real data.">
+                    <span aria-hidden="true">Rahul Ramesh Omalur builds <em class="rotator" id="rotator" data-words="machine learning systems|multi-agent LLMs|clinical ML models|edge computer vision|text-to-SQL agents">machine learning systems</em> that survive contact with real&nbsp;data.</span>
+                </h1>
+                <p class="lede reveal">
+                    I work across the stack, from clinical prediction on imbalanced hospital data to multi-agent
+                    LLM pipelines and computer vision quantized for a Raspberry&nbsp;Pi. I recently finished a
+                    B.Tech in Artificial Intelligence at IIIT Delhi.
                 </p>
-                <p>
-                    Completed my undergraduate degree in Computer Science and Artificial Intelligence at IIIT Delhi, 
-                    I'm passionate about creating innovative solutions and exploring the endless possibilities that technology offers.
-                </p>
+                <div class="hero-cta reveal">
+                    <a class="btn btn-primary magnetic" href="assets/css/Rahul_Resume.pdf" target="_blank" rel="noopener">
+                        Résumé
+                        <svg viewBox="0 0 24 24" aria-hidden="true"><path d="M7 17 17 7M8 7h9v9"/></svg>
+                    </a>
+                    <a class="btn magnetic" href="#contact">Get in touch</a>
+                    <div class="socials">
+                        <a href="https://github.com/rahulomalur" target="_blank" rel="noopener" aria-label="GitHub">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="fill"><path d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.1.79-.25.79-.56v-2c-3.2.7-3.88-1.37-3.88-1.37-.52-1.33-1.28-1.69-1.28-1.69-1.05-.71.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.7 1.26 3.36.96.1-.75.4-1.26.73-1.55-2.55-.29-5.24-1.28-5.24-5.69 0-1.26.45-2.28 1.19-3.09-.12-.29-.52-1.46.11-3.05 0 0 .97-.31 3.17 1.18a11 11 0 0 1 5.77 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.59.23 2.76.11 3.05.74.81 1.19 1.83 1.19 3.09 0 4.42-2.69 5.39-5.26 5.68.41.36.78 1.06.78 2.14v3.17c0 .31.21.67.8.56A11.5 11.5 0 0 0 12 .5Z"/></svg>
+                        </a>
+                        <a href="https://linkedin.com/in/rahul-omalur" target="_blank" rel="noopener" aria-label="LinkedIn">
+                            <svg viewBox="0 0 24 24" aria-hidden="true" class="fill"><path d="M20.45 20.45h-3.56v-5.57c0-1.33-.02-3.04-1.85-3.04-1.85 0-2.14 1.45-2.14 2.94v5.67H9.35V9h3.41v1.56h.05c.48-.9 1.64-1.85 3.37-1.85 3.6 0 4.27 2.37 4.27 5.46v6.28ZM5.34 7.43a2.06 2.06 0 1 1 0-4.13 2.06 2.06 0 0 1 0 4.13ZM7.12 20.45H3.56V9h3.56v11.45ZM22.22 0H1.77C.79 0 0 .77 0 1.73v20.54C0 23.23.79 24 1.77 24h20.45c.98 0 1.78-.77 1.78-1.73V1.73C24 .77 23.2 0 22.22 0Z"/></svg>
+                        </a>
+                        <a href="mailto:rahul.omalur14@gmail.com" aria-label="Email">
+                            <svg viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3.5 6.5 8.5 7 8.5-7"/></svg>
+                        </a>
+                    </div>
+                </div>
             </div>
+
+            <figure class="hero-figure reveal">
+                <div class="photo-frame">
+                    <img src="assets/img/profile_photo.png" alt="Portrait of Rahul Ramesh Omalur" width="853" height="1280">
+                </div>
+                <figcaption><span class="mono">Fig. 1</span> The author, between experiments.</figcaption>
+            </figure>
+        </section>
+        <div class="scroll-cue wrap" aria-hidden="true"><span class="mono">scroll</span><span class="scroll-line"></span></div>
         </section>
 
-        
+        <!-- Stat strip -->
+        <section class="wrap stats reveal" aria-label="At a glance">
+            <div class="stat"><span class="stat-num" data-count="3">3</span><span class="stat-label">industry &amp; research roles</span></div>
+            <div class="stat"><span class="stat-num" data-count="9">9</span><span class="stat-label">projects &amp; experiments shipped</span></div>
+            <div class="stat"><span class="stat-num" data-count="8.69" data-decimals="2">8.69</span><span class="stat-label">CGPA, IIIT Delhi</span></div>
+            <div class="stat"><span class="stat-num"><span data-count="23.9" data-decimals="1">23.9</span><small>ms</small></span><span class="stat-label">edge inference, down from 51.7</span></div>
+        </section>
+
+        <!-- Selected work -->
+        <section id="work" class="wrap section">
+            <header class="section-head reveal">
+                <span class="section-num">§ 01</span>
+                <h2>Selected work</h2>
+                <p class="section-note">Larger builds, mostly team projects where I owned the modelling.</p>
+            </header>
+
+            <ol class="work-list">
+                <li class="work reveal">
+                    <div class="work-index mono">01</div>
+                    <div class="work-body">
+                        <h3>QUADRA <span class="muted">Intent-aware counterspeech generation</span></h3>
+                        <p>A modular counterspeech framework with a shared HateBERT encoder feeding four intent-specific BART decoders. I co-proposed DialoRank, a zero-shot reranker that beat DialoGPT by 12.1 ROUGE-1 points.</p>
+                        <ul class="tags"><li>HateBERT</li><li>BART</li><li>PyTorch</li><li>Hugging Face</li><li>NLP</li></ul>
+                        <div class="links">
+                            <a href="https://quadra-counterspeech.vercel.app/" target="_blank" rel="noopener">Report <span aria-hidden="true">↗</span></a>
+                            <a href="https://github.com/NLP-2025/NLP-Project-CounterSpeech" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="work-metric"><span class="metric-num">0.871</span><span class="metric-label">BERTScore F1</span></div>
+                </li>
+
+                <li class="work reveal">
+                    <div class="work-index mono">02</div>
+                    <div class="work-body">
+                        <h3>SentinelAI <span class="muted">Multi-factor intrusion detection</span></h3>
+                        <p>Fuses face recognition (YuNet + SFace), ByteTrack person tracking and ST-GCN action recognition into one real-time threat score. ONNX quantization put it on a Raspberry Pi 4 and cut memory use by 40 to 55 percent.</p>
+                        <ul class="tags"><li>PyTorch</li><li>ONNX</li><li>OpenCV</li><li>Flask</li><li>Redis</li><li>MongoDB</li><li>Next.js</li></ul>
+                        <div class="links">
+                            <a href="https://github.com/rahulomalur/CV-Project-Intruder-Detection" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="work-metric"><span class="metric-num">2.2×</span><span class="metric-label">faster on-device</span></div>
+                </li>
+
+                <li class="work reveal">
+                    <div class="work-index mono">03</div>
+                    <div class="work-body">
+                        <h3>Nexus Agent <span class="muted">AI analyst for network simulations</span></h3>
+                        <p>A natural-language interface over AstraSim simulation logs. Users query and chart thousand-run datasets without writing SQL, backed by schema-aware Text-to-SQL with Groq-powered self-correction.</p>
+                        <ul class="tags"><li>LangGraph</li><li>MCP</li><li>Groq</li><li>Flask</li><li>Next.js</li><li>SQLite</li></ul>
+                        <div class="links">
+                            <a href="https://nexusagent.rahulomalur.xyz/" target="_blank" rel="noopener">Live <span aria-hidden="true">↗</span></a>
+                            <a href="https://github.com/rahulomalur/nexus-agent" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="work-metric"><span class="metric-num">90–100%</span><span class="metric-label">query accuracy</span></div>
+                </li>
+
+                <li class="work reveal">
+                    <div class="work-index mono">04</div>
+                    <div class="work-body">
+                        <h3>Probabilistic Pundit <span class="muted">Multi-agent FPL squad predictor</span></h3>
+                        <p>A hierarchical multi-agent LLM system for Fantasy Premier League that blends player stats with signals scraped from Reddit and the press. It outperformed Gemini 2.5 Flash, Kimi-k2 and a deterministic LP solver.</p>
+                        <ul class="tags"><li>LangChain</li><li>Groq</li><li>TOPSIS</li><li>FastAPI</li><li>Streamlit</li></ul>
+                        <div class="links">
+                            <a href="https://probabilistic-pundit.streamlit.app" target="_blank" rel="noopener">Live <span aria-hidden="true">↗</span></a>
+                            <a href="https://github.com/Rahul14052004/probabilistic-pundit" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="work-metric"><span class="metric-num">90%+</span><span class="metric-label">point potential kept after filtering</span></div>
+                </li>
+
+                <li class="work reveal">
+                    <div class="work-index mono">05</div>
+                    <div class="work-body">
+                        <h3>SmartReach AI <span class="muted">Email campaign platform</span></h3>
+                        <p>AI-driven email automation that pairs Mistral and Gemma in a RAG pipeline, with XGBoost-powered send-time optimization. Celery and Redis handle scheduling behind a Next.js analytics front end.</p>
+                        <ul class="tags"><li>Django</li><li>Next.js</li><li>RAG</li><li>XGBoost</li><li>Celery</li><li>Redis</li></ul>
+                        <div class="links">
+                            <a href="https://smartreachai.rahulomalur.xyz/" target="_blank" rel="noopener">Live <span aria-hidden="true">↗</span></a>
+                            <a href="https://github.com/SDOS-2025/SmartReach-AI" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="work-metric"><span class="metric-num">2</span><span class="metric-label">LLMs in one RAG loop</span></div>
+                </li>
+            </ol>
+        </section>
 
         <!-- Experience -->
-        <section id="experience">
-            <h2>Experience</h2>
-            <div class="timeline">
-                <div class="timeline-item" onclick="window.open('https://www.tcs.com/what-we-do/research', '_blank')">
-                    <h3>TCS Research & Innovation</h3>
-                    <span class="role">Machine Learning Intern · Thane, India</span>
-                    <span class="date">May 2025 – Jul 2025</span>
-                    <div class="details">
+        <section id="experience" class="wrap section">
+            <header class="section-head reveal">
+                <span class="section-num">§ 02</span>
+                <h2>Experience</h2>
+                <p class="section-note">Research labs and industry, most recent first.</p>
+            </header>
+
+            <div class="xp-list"><span class="xp-rail" aria-hidden="true"><span class="xp-rail-fill" id="xpRail"></span></span>
+                <article class="xp reveal">
+                    <div class="xp-meta">
+                        <span class="mono">Jan – May 2026</span>
+                        <span class="muted">New Delhi</span>
+                    </div>
+                    <div class="xp-body">
+                        <h3><a href="https://tavlab.iiitd.edu.in" target="_blank" rel="noopener">TavLab, IIIT Delhi <span aria-hidden="true">↗</span></a></h3>
+                        <p class="xp-role">Undergraduate Researcher</p>
                         <ul>
-                            <li>Tackled a heavily imbalanced clinical dataset (197 CAD cases vs. 22 normal) from hospitals across India, engineering a 92-feature pipeline combining ECG signals and patient metadata to predict Coronary Artery Disease risk</li>
-                            <li>Ran a systematic benchmarking study across 4 classifiers and 19 experiments — best RFC configuration hit 0.87 accuracy and 0.93 F1, while HistGBC surfaced the strongest minority-class sensitivity with a G-score of 0.61</li>
-                            <li>Identified a fundamental clinical trade-off: models with near-perfect overall accuracy were nearly blind to actual CAD cases, informing which model architecture to recommend for real deployment where missing a positive is high-risk</li>
+                            <li>Benchmarked modern vision-language models, zero-shot, on digitizing handwritten medical prescriptions and extracting antibiotic entities.</li>
+                            <li>Built a <strong>1,115-image</strong> augmented benchmark from 223 real prescriptions, stress-testing against blur, compression and geometric distortion.</li>
+                            <li>Showed binary accuracy misleads on this task and proposed WAnIOU instead. It exposed GLM-OCR scoring <strong>≤ 0.04</strong> despite 44.93% accuracy.</li>
                         </ul>
                     </div>
-                </div>
+                </article>
 
-                <div class="timeline-item" onclick="window.open('https://tavlab.iiitd.edu.in', '_blank')">
-                    <h3>TavLab, IIIT Delhi</h3>
-                    <span class="role">Undergraduate Researcher · New Delhi, India</span>
-                    <span class="date">Jan 2026 – May 2026</span>
-                    <div class="details">
+                <article class="xp reveal">
+                    <div class="xp-meta">
+                        <span class="mono">May – Jul 2025</span>
+                        <span class="muted">Thane</span>
+                    </div>
+                    <div class="xp-body">
+                        <h3><a href="https://www.tcs.com/what-we-do/research" target="_blank" rel="noopener">TCS Research &amp; Innovation <span aria-hidden="true">↗</span></a></h3>
+                        <p class="xp-role">Machine Learning Intern</p>
                         <ul>
-                            <li>Conducted a rigorous zero-shot benchmarking study on handwritten medical prescription digitization, evaluating how well modern VLMs can extract antibiotic entities without any task-specific fine-tuning</li>
-                            <li>Built a 1,115-image augmented benchmark from 223 real clinical prescriptions, stress-testing models against motion blur, compression artifacts, and geometric distortion common in clinic-captured photos</li>
-                            <li>Showed that standard binary accuracy is a misleading metric for this task — proposing WAnIOU as a replacement, which exposed GLM-OCR's near-complete failure (≤0.04) despite its 44.93% accuracy score</li>
+                            <li>Engineered a <strong>92-feature</strong> pipeline from ECG signals and patient metadata to predict coronary artery disease on a heavily imbalanced clinical dataset.</li>
+                            <li>Ran 19 experiments across 4 classifiers. The best random forest reached <strong>0.93 F1</strong>, while HistGBC gave the strongest minority-class sensitivity.</li>
+                            <li>Showed that near-perfect accuracy models were nearly blind to real CAD cases, which shaped the deployment recommendation.</li>
                         </ul>
                     </div>
-                </div>
+                </article>
 
-                <!-- <div class="timeline-item" onclick="window.open('https://sbilab.iiitd.edu.in', '_blank')">
-                    <h3>SBILab, IIIT-Delhi</h3>
-                    <span class="role">Undergraduate Researcher</span>
-                    <span class="date">Jul 2024 – May 2025</span>
-                    <div class="details">
-                        <div class="project-subitem">
-                            <p><strong>Automatic Music Transcription (BTP)</strong></p>
-                            <ul>
-                                <li>Developed PolyGraphAMT and GAT-AMT models using CNN-GRU encoders and GNN-based decoders</li>
-                                <li>Achieved competitive accuracy against baselines like Transkun and Kong</li>
-                            </ul>
-                        </div>
-                        <div class="project-subitem">
-                            <p><strong>AI/ML-Aided Cardiovascular Disease Prediction</strong></p>
-                            <ul>
-                                <li>Designed deep learning models including Graph Neural Networks for ECG classification</li>
-                                <li>Collaborated under Prof. Anubha Gupta at SBILab</li>
-                            </ul>
-                        </div>
+                <article class="xp reveal">
+                    <div class="xp-meta">
+                        <span class="mono">May – Jul 2024</span>
+                        <span class="muted">Bangalore</span>
                     </div>
-                </div> -->
-
-                <div class="timeline-item" onclick="window.open('https://linkedin.com/in/rahul-omalur', '_blank')">
-                    <h3>CodePlex Technologies Pvt. Ltd.</h3>
-                    <span class="role">Software Engineer Intern · Bangalore, India</span>
-                    <span class="date">May 2024 – Jul 2024</span>
-                    <div class="details">
+                    <div class="xp-body">
+                        <h3>CodePlex Technologies</h3>
+                        <p class="xp-role">Software Engineer Intern</p>
                         <ul>
-                            <li>Built a self-serving AutoImporter web application using PHP Laravel and MySQL to scrape and store user-submitted obituaries.</li>
-                            <li>Migrated obituary-related data from legacy websites using web scraping technology, specifically the Simple HTML DOM Parser toolkit.</li>
-                            <li>Resolved anomalies in the AutoImporter tool for Tribute Technologies Ltd to ensure accurate conversion of unstructured data into structured formats.</li>
+                            <li>Built AutoImporter, a self-serve Laravel and MySQL app that scrapes and stores user-submitted obituaries.</li>
+                            <li>Migrated data from legacy websites with the Simple HTML DOM Parser toolkit.</li>
+                            <li>Fixed conversion anomalies for Tribute Technologies so unstructured data landed in clean, structured form.</li>
                         </ul>
                     </div>
-                </div>
+                </article>
             </div>
         </section>
 
-        <!-- Projects -->
-        <section id="projects">
-    <h2>Projects</h2>
+        <!-- Experiments -->
+        <section id="experiments" class="wrap section">
+            <header class="section-head reveal">
+                <span class="section-num">§ 03</span>
+                <h2>Experiments</h2>
+                <p class="section-note">Smaller studies, benchmarks and weekend builds.</p>
+            </header>
 
-    <div class="project-card">
-        <h3>QUADRA: Intent-Aware Counterspeech Generation</h3>
-        <p>Co-developed a modular counterspeech framework with a shared HateBERT encoder and 4 intent-specific BART decoders. Proposed DialoRank, a zero-shot reranker achieving BERTScore F1 of 0.871, outperforming DialoGPT by +12.1 ROUGE-1.</p>
-        <p><strong>Tech:</strong> HateBERT, BART, HuggingFace, PyTorch, NLP</p>
-        <a href="https://quadra-counterspeech.vercel.app/" target="_blank">View Report <i class="fas fa-external-link-alt"></i></a>
-        <br>
-        <a href="https://github.com/NLP-2025/NLP-Project-CounterSpeech" target="_blank">View on GitHub <i class="fas fa-external-link-alt"></i></a>
-    </div>
-
-    <div class="project-card">
-        <h3>SmartReach AI: Email Campaign Management System</h3>
-        <p>Developed an AI-driven email automation platform integrating Mistral and Gemma in a RAG framework. Built scalable backend with Send Time Optimization powered by XGBoost and modern Next.js frontend.</p>
-        <p><strong>Tech:</strong> Django, Next.js, LLMs, RAG, XGBoost, Celery, Redis</p>
-        <a href="https://smartreachai.rahulomalur.xyz/" target="_blank">View Website <i class="fas fa-external-link-alt"></i></a>
-        <br>
-        <a href="https://github.com/SDOS-2025/SmartReach-AI" target="_blank">View on GitHub <i class="fas fa-external-link-alt"></i></a>
-        
-    </div>
-
-    <div class="project-card">
-        <h3>SentinelAI: Intrusion Detection System</h3>
-        <p>Multi-factor IDS fusing face recognition (YuNet+SFace), ByteTrack person tracking, and ST-GCN action recognition into a real-time threat-scoring pipeline. Deployed on Raspberry Pi 4 via ONNX quantization, cutting memory by 40–55% and reducing latency from 51.7ms to 23.9ms.</p>
-        <p><strong>Tech:</strong> Flask, Redis, MongoDB, OpenCV, PyTorch, ONNX, Next.js</p>
-        <a href="https://github.com/rahulomalur/CV-Project-Intruder-Detection" target="_blank">View on GitHub <i class="fas fa-external-link-alt"></i></a>
-    </div>
-
-    <div class="project-card">
-        <h3>Nexus Agent: AI Network Simulation Analyst</h3>
-        <p>Full-stack natural language interface over AstraSim simulation logs, letting users query and visualize 1,000-run datasets without writing SQL. Schema-aware Text-to-SQL with Groq-powered self-correction achieved 90–100% query accuracy.</p>
-        <p><strong>Tech:</strong> LangGraph, Flask, Next.js, SQLite, Groq, MCP</p>
-        <a href="https://nexusagent.rahulomalur.xyz/" class="experiment-link" target="_blank">
-                        View Website <i class="fas fa-external-link-alt"></i>
-                    </a>
-        <br>
-
-        <a href="https://github.com/rahulomalur/nexus-agent" target="_blank">View on GitHub <i class="fas fa-external-link-alt"></i></a>
-        
-    </div>
-
-    <div class="project-card">
-        <h3>Probabilistic Pundit: Multi-Agent LLM FPL Squad Predictor</h3>
-        <p>Hierarchical multi-agent LLM framework for Fantasy Premier League squad selection, fusing player stats with signals scraped from Reddit and press sources. TOPSIS-based filtering preserved 90%+ point potential; outperformed Gemini 2.5 Flash, Kimi-k2, and a deterministic LP solver.</p>
-        <p><strong>Tech:</strong> LangChain, Groq, TOPSIS, FastAPI, Streamlit</p>
-        <a href="https://probabilistic-pundit.streamlit.app" target="_blank">View Website <i class="fas fa-external-link-alt"></i></a>
-        <br>
-        <a href="https://github.com/Rahul14052004/probabilistic-pundit" target="_blank">View on GitHub <i class="fas fa-external-link-alt"></i></a>
-    </div>
-
-</section>
-
-        <section id="experiments">
-            <h2>Experiments</h2>
-            <p class="subtitle" style="margin-bottom: 2rem;">
-                A collection of research proofs, benchmarks, and smaller technical explorations.
-            </p>
-            
-            <div class="experiments-grid">
-
-                <div class="experiment-card">
-
-                    
-                    <div>
-                        <h3>Paper2PPT</h3>
-                        <p>An agentic workflow built with LangChain and Groq API to parse academic papers and automatically generate structured PowerPoint presentations.</p>
-                        <div style="margin-bottom: 1rem; font-size: 0.85rem; color: var(--text-light);">
-                            <span style="margin-right: 10px;"><i class="fas fa-database"></i> ArXiv</span>
-
-                        </div>
-
+            <div class="exp-grid">
+                <article class="exp reveal" data-tilt><span class="glare" aria-hidden="true"></span>
+                    <div class="exp-top"><span class="mono muted">Agentic · ArXiv</span></div>
+                    <h3>Paper2PPT</h3>
+                    <p>An agentic LangChain and Groq workflow that reads an academic paper and drafts a structured PowerPoint deck.</p>
+                    <div class="links">
+                        <a href="https://paper2ppt.streamlit.app" target="_blank" rel="noopener">Live <span aria-hidden="true">↗</span></a>
+                        <a href="https://github.com/rahulomalur/paper2ppt" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
                     </div>
-                    <a href="https://paper2ppt.streamlit.app" class="experiment-link" target="_blank">
-                        View Website <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="https://github.com/rahulomalur/paper2ppt" class="experiment-link" target="_blank">
-                        View Code <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
+                </article>
 
-                <div class="experiment-card">
+                <article class="exp reveal" data-tilt><span class="glare" aria-hidden="true"></span>
+                    <div class="exp-top"><span class="mono muted">Audio · GTZAN</span><span class="pill">89% acc</span></div>
+                    <h3>Music Genre Classification</h3>
+                    <p>Classical ML against CNN and RCNN architectures on mel-spectrograms. The RCNN came out on top.</p>
+                    <div class="links">
+                        <a href="https://sml-music-genre-classification.vercel.app/" target="_blank" rel="noopener">Research <span aria-hidden="true">↗</span></a>
+                        <a href="https://github.com/Mehul-Ag20/Music_Genre_Classification" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
+                    </div>
+                </article>
 
-                    
-                    <div>
-                        <h3>Music Genre Classification</h3>
-                        <p>A comparative study of machine learning vs. deep learning architectures (CNN/RCNN) on the GTZAN dataset, achieving 89% accuracy.</p>
-                        <div style="margin-bottom: 1rem; font-size: 0.85rem; color: var(--text-light);">
-                            <span style="margin-right: 10px;"><i class="fas fa-database"></i> GTZAN</span>
-                            <span><i class="fas fa-chart-line"></i> 89% Acc</span>
-                        </div>
+                <article class="exp reveal" data-tilt><span class="glare" aria-hidden="true"></span>
+                    <div class="exp-top"><span class="mono muted">Sports · 10 seasons</span><span class="pill">77% acc</span></div>
+                    <h3>ELO-Insights</h3>
+                    <p>An XGBoost and gradient-boosting ensemble that predicts Premier League match outcomes from Elo and xG features.</p>
+                    <div class="links">
+                        <a href="https://elo-insights.vercel.app/" target="_blank" rel="noopener">Experiments <span aria-hidden="true">↗</span></a>
+                        <a href="https://github.com/ML-Project-PremierInsights/ELO-Insights" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
                     </div>
-                    <a href="https://sml-music-genre-classification.vercel.app/" class="experiment-link" target="_blank">
-                        View Research <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="https://github.com/Mehul-Ag20/Music_Genre_Classification" class="experiment-link" target="_blank">
-                        View Code <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-        
-                <div class="experiment-card">
-                    <div>
-                        <h3>ELO-Insights: PL Predictor</h3>
-                        <p>Ensemble ML system (XGBoost, Gradient Boosting) predicting Premier League match outcomes with 77% accuracy across 10 seasons of data.</p>
-                        <div style="margin-bottom: 1rem; font-size: 0.85rem; color: var(--text-light);">
-                            <span style="margin-right: 10px;"><i class="fas fa-futbol"></i> PL 24/25</span>
-                            <span><i class="fas fa-chart-bar"></i> 77% Acc</span>
-                        </div>
-                    </div>
-                    <a href="https://elo-insights.vercel.app/" class="experiment-link" target="_blank">
-                        View Experiments <i class="fas fa-arrow-right"></i>
-                    </a>
-                    <a href="https://github.com/ML-Project-PremierInsights/ELO-Insights" class="experiment-link" target="_blank">
-                        View Code <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
+                </article>
 
-                <div class="experiment-card">
-                    <div>
-                        <h3>Robo-Bartender</h3>
-                        <p>An intelligent, fully interactive robotic bartender that blends voice-driven conversation, computer vision, and robotic manipulation to craft cocktails on demand.</p>
-                        <div style="margin-bottom: 1rem; font-size: 0.85rem; color: var(--text-light);">
-                            <span style="margin-right: 10px;"><i class="fas fa-robot"></i> Cobot Arm</span>
-                            <span><i class="fas fa-robot"></i> ROS</span>
-                        </div>
+                <article class="exp reveal" data-tilt><span class="glare" aria-hidden="true"></span>
+                    <div class="exp-top"><span class="mono muted">Robotics · ROS</span></div>
+                    <h3>Robo-Bartender</h3>
+                    <p>A cobot arm that takes voice orders, sees the bar with computer vision and mixes cocktails on demand.</p>
+                    <div class="links">
+                        <a href="https://github.com/Vikranth3140/Robo-Bartender" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
                     </div>
-    
-                    <a href="https://github.com/Vikranth3140/Robo-Bartender" class="experiment-link" target="_blank">
-                        View Code <i class="fas fa-arrow-right"></i>
-                    </a>
-                </div>
-        
-                
+                </article>
             </div>
         </section>
-        <!-- Skills -->
-        <section id="skills">
-            <h2>Skills</h2>
-            <div class="skills-grid">
-                <div class="skill-category">
-                    <h3>Languages</h3>
-                    <div class="skill-icons">
-                        <div class="skill-icon">
-                            <img src="assets/img/skills/python.png" alt="Python">
-                            <span class="tooltip">Python</span>
-                        </div>
-                        <div class="skill-icon">
-                            <img src="assets/img/skills/java.png" alt="Java">
-                            <span class="tooltip">Java</span>
-                        </div>
-                        <div class="skill-icon">
-                            <img src="assets/img/skills/javascript.png" alt="JavaScript">
-                            <span class="tooltip">JavaScript</span>
-                        </div>
-                        <div class="skill-icon">
-                            <img src="assets/img/skills/sql.png" alt="SQL">
-                            <span class="tooltip">SQL</span>
-                        </div>
-                        <div class="skill-icon">
-                          <img src="assets/img/skills/c.png" alt="C">
-                          <span class="tooltip">C</span>
-                      </div>
-                      <div class="skill-icon">
-                        <img src="assets/img/skills/php.png" alt="PHP">
-                        <span class="tooltip">PHP</span>
-                    </div>
-                    </div>
+
+        <div class="marquee" aria-hidden="true">
+            <div class="marquee-track"><div class="marquee-group"><span>PyTorch</span><i>✦</i><span>TensorFlow</span><i>✦</i><span>scikit-learn</span><i>✦</i><span>Hugging Face</span><i>✦</i><span>LangChain</span><i>✦</i><span>LangGraph</span><i>✦</i><span>RAG</span><i>✦</i><span>MCP</span><i>✦</i><span>ONNX</span><i>✦</i><span>XGBoost</span><i>✦</i><span>FastAPI</span><i>✦</i><span>Next.js</span><i>✦</i><span>Docker</span><i>✦</i><span>PostgreSQL</span><i>✦</i><span>Redis</span><i>✦</i><span>Celery</span><i>✦</i></div><div class="marquee-group"><span>PyTorch</span><i>✦</i><span>TensorFlow</span><i>✦</i><span>scikit-learn</span><i>✦</i><span>Hugging Face</span><i>✦</i><span>LangChain</span><i>✦</i><span>LangGraph</span><i>✦</i><span>RAG</span><i>✦</i><span>MCP</span><i>✦</i><span>ONNX</span><i>✦</i><span>XGBoost</span><i>✦</i><span>FastAPI</span><i>✦</i><span>Next.js</span><i>✦</i><span>Docker</span><i>✦</i><span>PostgreSQL</span><i>✦</i><span>Redis</span><i>✦</i><span>Celery</span><i>✦</i></div></div>
+        </div>
+
+        <!-- Toolkit -->
+        <section id="toolkit" class="wrap section">
+            <header class="section-head reveal">
+                <span class="section-num">§ 04</span>
+                <h2>Toolkit</h2>
+                <p class="section-note">What I reach for, grouped by job.</p>
+            </header>
+
+            <dl class="toolkit reveal">
+                <div class="tk-row">
+                    <dt>ML &amp; AI</dt>
+                    <dd><ul class="tags"><li>PyTorch</li><li>TensorFlow</li><li>scikit-learn</li><li>Hugging Face</li><li>XGBoost</li><li>ONNX</li></ul></dd>
                 </div>
-                <div class="skill-category">
-                    <h3>ML/AI</h3>
-                    <div class="skill-icons">
-                        <div class="skill-icon">
-                            <img src="assets/img/skills/pytorch.png" alt="PyTorch">
-                            <span class="tooltip">PyTorch</span>
-                        </div>
-                        <div class="skill-icon">
-                            <img src="assets/img/skills/tensorflow.png" alt="TensorFlow">
-                            <span class="tooltip">TensorFlow</span>
-                        </div>
-                        <div class="skill-icon">
-                            <img src="assets/img/skills/scikit-learn.png" alt="scikit-learn">
-                            <span class="tooltip">scikit-learn</span>
-                        </div>
-                        <div class="skill-icon">
-                            <img src="assets/img/skills/huggingface.png" alt="Hugging Face">
-                            <span class="tooltip">Hugging Face</span>
-                        </div>
-                        <div class="skill-icon">
-                            <img src="assets/img/skills/langchain.png" alt="LangChain">
-                            <span class="tooltip">LangChain</span>
-                        </div>
-                    </div>
+                <div class="tk-row">
+                    <dt>LLM systems</dt>
+                    <dd><ul class="tags"><li>LangChain</li><li>LangGraph</li><li>RAG</li><li>MCP</li><li>Groq</li><li>Ollama</li></ul></dd>
                 </div>
-                <div class="skill-category">
-                    <h3>Web Dev</h3>
-                    <div class="skill-icons">
-                        <div class="skill-icon">
-                            <img src="assets/img/skills/django.png" alt="Django">
-                            <span class="tooltip">Django</span>
-                        </div>
-                        <div class="skill-icon">
-                            <img src="assets/img/skills/nextjs.png" alt="Next.js">
-                            <span class="tooltip">Next.js</span>
-                        </div>
-                        <div class="skill-icon">
-                            <img src="assets/img/skills/fastapi.png" alt="FastAPI">
-                            <span class="tooltip">FastAPI</span>
-                        </div>
-                        <div class="skill-icon">
-                            <img src="assets/img/skills/react.png" alt="React">
-                            <span class="tooltip">React</span>
-                        </div>
-                        <div class="skill-icon">
-                            <img src="assets/img/skills/laravel.png" alt="Laravel">
-                            <span class="tooltip">Laravel</span>
-                        </div>
-                    </div>
+                <div class="tk-row">
+                    <dt>Languages</dt>
+                    <dd><ul class="tags"><li>Python</li><li>SQL</li><li>JavaScript</li><li>Java</li><li>C</li><li>PHP</li></ul></dd>
                 </div>
-                <div class="skill-category">
-                    <h3>Tools</h3>
-                    <div class="skill-icons">
-                        <div class="skill-icon">
-                            <img src="assets/img/skills/git.png" alt="Git">
-                            <span class="tooltip">Git</span>
-                        </div>
-                        <div class="skill-icon">
-                            <img src="assets/img/skills/docker.png" alt="Docker">
-                            <span class="tooltip">Docker</span>
-                        </div>
-                        <div class="skill-icon">
-                            <img src="assets/img/skills/postgresql.png" alt="PostgreSQL">
-                            <span class="tooltip">PostgreSQL</span>
-                        </div>
-                        <div class="skill-icon">
-                            <img src="assets/img/skills/celery.png" alt="Celery">
-                            <span class="tooltip">Celery</span>
-                        </div>
-                    </div>
+                <div class="tk-row">
+                    <dt>Web</dt>
+                    <dd><ul class="tags"><li>FastAPI</li><li>Django</li><li>Flask</li><li>Next.js</li><li>React</li><li>Laravel</li></ul></dd>
                 </div>
-            </div>
+                <div class="tk-row">
+                    <dt>Infra</dt>
+                    <dd><ul class="tags"><li>Docker</li><li>PostgreSQL</li><li>Redis</li><li>Celery</li><li>Git</li></ul></dd>
+                </div>
+            </dl>
         </section>
 
         <!-- Education -->
-        <section id="education">
-            <h2>Education</h2>
-            <div class="education-item" onclick="window.open('https://iiitd.ac.in', '_blank')">
-                <img src="assets/img/iiitd_logo.png" alt="IIIT Delhi" class="education-logo">
-                <div>
-                    <h3>Bachelor of Technology - Artificial Intelligence</h3>
-                    <p>Indraprastha Institute of Information Technology, Delhi</p>
-                    <p>Nov 2022 - Jul 2026 · CGPA: 8.69</p>
-                </div>
+        <section id="education" class="wrap section">
+            <header class="section-head reveal">
+                <span class="section-num">§ 05</span>
+                <h2>Education</h2>
+            </header>
+
+            <div class="edu-list">
+                <a class="edu reveal" href="https://iiitd.ac.in" target="_blank" rel="noopener">
+                    <img src="assets/img/iiitd_logo.png" alt="" class="edu-logo" loading="lazy">
+                    <div class="edu-body">
+                        <h3>B.Tech, Artificial Intelligence</h3>
+                        <p>Indraprastha Institute of Information Technology, Delhi</p>
+                    </div>
+                    <div class="edu-meta"><span class="mono">2022 – 2026</span><span class="pill">CGPA 8.69</span></div>
+                </a>
+                <a class="edu reveal" href="https://gosbangalore.edu.in/" target="_blank" rel="noopener">
+                    <img src="assets/img/geetanjali.png" alt="" class="edu-logo" loading="lazy">
+                    <div class="edu-body">
+                        <h3>CBSE, Computer Science</h3>
+                        <p>Geetanjali Olympiad School</p>
+                    </div>
+                    <div class="edu-meta"><span class="mono">2020 – 2022</span><span class="pill">95%</span></div>
+                </a>
+                <a class="edu reveal" href="https://east.dpsbangalore.edu.in/" target="_blank" rel="noopener">
+                    <img src="assets/img/dps.png" alt="" class="edu-logo" loading="lazy">
+                    <div class="edu-body">
+                        <h3>CBSE, Computer Science</h3>
+                        <p>Delhi Public School</p>
+                    </div>
+                    <div class="edu-meta"><span class="mono">2010 – 2020</span><span class="pill">92%</span></div>
+                </a>
             </div>
-            <div class="education-item" onclick="window.open('https://gosbangalore.edu.in/', '_blank')">
-                <img src="assets/img/geetanjali.png" alt="Geetanjali" class="education-logo">
-                <div>
-                    <h3>CBSE - Computer Science</h3>
-                    <p>Geetanjali Olympiad School, India</p>
-                    <p>2020 - 2022 · Grade: 95%</p>
-                </div>
-            </div>
-            <div class="education-item" onclick="window.open('https://east.dpsbangalore.edu.in/', '_blank')">
-                <img src="assets/img/dps.png" alt="DPS" class="education-logo">
-                <div>
-                    <h3>CBSE - Computer Science</h3>
-                    <p>Delhi Public School, India</p>
-                    <p>2010 - 2020 · Grade: 92%</p>
+        </section>
+
+        <!-- Contact -->
+        <section id="contact" class="wrap section contact">
+            <div class="contact-card reveal">
+                <span class="section-num">§ 06</span>
+                <h2>Have a model that needs <em>to work in the real world?</em></h2>
+                <p>I'm looking for ML engineering roles. I also like hearing about interesting problems in music, sport and film.</p>
+                <div class="contact-actions">
+                    <button class="email-copy" id="copyEmail" type="button" data-email="rahul.omalur14@gmail.com">
+                        <span class="email-text">rahul.omalur14@gmail.com</span>
+                        <span class="email-hint" aria-live="polite">Copy</span>
+                    </button>
+                    <a class="btn btn-primary magnetic" href="mailto:rahul.omalur14@gmail.com">Write to me</a>
+                    <a class="btn magnetic" href="assets/css/Rahul_Resume.pdf" target="_blank" rel="noopener">Résumé ↗</a>
                 </div>
             </div>
         </section>
-        <!-- Resume -->
-        <section id="resume">
-    <h2>Resume</h2>
-    <div class="resume-download">
-        <p>Download Resume here.</p>
-        <div style="display: flex; gap: 1rem; justify-content: center; flex-wrap: wrap;">
-            <a href="assets/css/Rahul_Resume.pdf" class="resume-btn" target="_blank">
-                <i class="fas fa-download"></i> Resume
-            </a>
-            
-        </div>
-    </div>
-</section>
     </main>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2026 Rahul Ramesh Omalur. All rights reserved.</p>
-        </div>
+    <footer class="wrap footer">
+        <span>© <span id="year">2026</span> Rahul Ramesh Omalur</span>
+        <span class="muted">Set in Instrument Serif &amp; Geist.</span>
+        <a href="#top">Back to top ↑</a>
     </footer>
 
-    <!-- Dark Mode Toggle Button -->
-    <button class="theme-toggle" id="themeToggle" aria-label="Toggle dark mode">
-        <i class="fas fa-moon"></i>
-    </button>
-
-    <script>
-        // Dark Mode Toggle
-        const themeToggle = document.getElementById('themeToggle');
-        const html = document.documentElement;
-        const icon = themeToggle.querySelector('i');
-
-        // Check for saved theme preference or default to light mode
-        const currentTheme = localStorage.getItem('theme') || 'light';
-        html.setAttribute('data-theme', currentTheme);
-        updateIcon(currentTheme);
-
-        themeToggle.addEventListener('click', () => {
-            const currentTheme = html.getAttribute('data-theme');
-            const newTheme = currentTheme === 'light' ? 'dark' : 'light';
-            
-            html.setAttribute('data-theme', newTheme);
-            localStorage.setItem('theme', newTheme);
-            updateIcon(newTheme);
-        });
-
-        function updateIcon(theme) {
-            if (theme === 'dark') {
-                icon.className = 'fas fa-sun';
-            } else {
-                icon.className = 'fas fa-moon';
-            }
-        }
-
-        // Highlight active section in navigation
-        const sections = document.querySelectorAll('section');
-        const navLinks = document.querySelectorAll('nav a');
-
-        function highlightNavigation() {
-            let currentSection = '';
-            
-            sections.forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.clientHeight;
-                
-                if (window.pageYOffset >= sectionTop - 150) {
-                    currentSection = section.getAttribute('id');
-                }
-            });
-
-            navLinks.forEach(link => {
-                link.classList.remove('active');
-                if (link.getAttribute('href') === `#${currentSection}`) {
-                    link.classList.add('active');
-                }
-            });
-        }
-
-        window.addEventListener('scroll', highlightNavigation);
-        window.addEventListener('load', highlightNavigation);
-    </script>
+    <script src="assets/site.js"></script>
 </body>
 </html>
