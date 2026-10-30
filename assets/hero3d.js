@@ -55,7 +55,7 @@
         var edgeGeo = new T.BufferGeometry();
         edgeGeo.setAttribute('position', new T.BufferAttribute(edgePos, 3));
         edgeGeo.setAttribute('color', new T.BufferAttribute(edgeCol, 3));
-        var edgeMat = new T.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.22, depthWrite: false });
+        var edgeMat = new T.LineBasicMaterial({ vertexColors: true, transparent: true, opacity: 0.16, depthWrite: false });
         net.add(new T.LineSegments(edgeGeo, edgeMat));
 
         /* ---------- Nodes ---------- */
@@ -81,7 +81,7 @@
         nodes.forEach(function (n, i) { haloPos.set([n.pos.x, n.pos.y, n.pos.z], i * 3); });
         var haloGeo = new T.BufferGeometry();
         haloGeo.setAttribute('position', new T.BufferAttribute(haloPos, 3));
-        var haloMat = new T.PointsMaterial({ size: 1.1, map: haloTex, transparent: true, opacity: 0.35, depthWrite: false });
+        var haloMat = new T.PointsMaterial({ size: 1.1, map: haloTex, transparent: true, opacity: 0.12, depthWrite: false });
         net.add(new T.Points(haloGeo, haloMat));
 
         /* ---------- Signals ---------- */
@@ -121,17 +121,15 @@
             cA.set(c.accent); cB.set(c.accent2 || c.accent); cInk.set(c.ink);
             edges.forEach(function (e, i) {
                 var ta = nodes[e[0]].layer / (LAYERS.length - 1), tb = nodes[e[1]].layer / (LAYERS.length - 1);
-                tmpC.copy(cA).lerp(cB, ta); edgeCol.set([tmpC.r, tmpC.g, tmpC.b], i * 6);
-                tmpC.copy(cA).lerp(cB, tb); edgeCol.set([tmpC.r, tmpC.g, tmpC.b], i * 6 + 3);
+                edgeCol.set([cInk.r, cInk.g, cInk.b, cInk.r, cInk.g, cInk.b], i * 6);
             });
             edgeGeo.attributes.color.needsUpdate = true;
             nodes.forEach(function (n, i) {
-                tmpC.copy(cA).lerp(cB, n.layer / (LAYERS.length - 1));
-                nodeMesh.setColorAt(i, tmpC);
+                nodeMesh.setColorAt(i, cInk);
             });
             nodeMesh.instanceColor.needsUpdate = true;
-            haloMat.color.copy(cA).lerp(cB, 0.5);
-            pulseMat.color.copy(cB);
+            haloMat.color.copy(cInk);
+            pulseMat.color.copy(cA);
             dustMat.color.copy(cInk);
         }
         setColors(colors);
@@ -230,8 +228,11 @@
                 var s = 1 + Math.sin(t * 2 + n) * 0.08 + nd.flash * 1.1;
                 m4.compose(nd.pos, q, sc.set(s, s, s));
                 nodeMesh.setMatrixAt(n, m4);
+                tmpC.copy(cInk).lerp(cA, Math.min(1, nd.flash * 1.4));
+                nodeMesh.setColorAt(n, tmpC);
             }
             nodeMesh.instanceMatrix.needsUpdate = true;
+            nodeMesh.instanceColor.needsUpdate = true;
 
             renderer.render(scene, camera);
         }
