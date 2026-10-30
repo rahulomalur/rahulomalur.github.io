@@ -154,10 +154,25 @@
         var cs = getComputedStyle(root);
         colors.ink = cs.getPropertyValue('--ink').trim() || colors.ink;
         colors.accent = cs.getPropertyValue('--accent').trim() || colors.accent;
+        colors.accent2 = cs.getPropertyValue('--accent-2').trim() || colors.accent;
+        if (hero3d) hero3d.setColors(colors);
     }
+    var hero3d = null;
     readColors();
 
-    if (canvas && !reduced) {
+    if (canvas && !reduced && window.THREE && window.initHero3D) {
+        try {
+            hero3d = window.initHero3D(canvas, colors);
+        } catch (err) {
+            // No WebGL: swap in a fresh canvas for the 2D fallback
+            hero3d = null;
+            var fresh = canvas.cloneNode(false);
+            canvas.parentNode.replaceChild(fresh, canvas);
+            canvas = fresh;
+        }
+    }
+
+    if (canvas && !reduced && !hero3d) {
         var ctx = canvas.getContext('2d');
         var W = 0, H = 0, dpr = 1, nodes = [], pulses = [];
         var mouse = { x: -9999, y: -9999, active: false };
@@ -411,8 +426,9 @@
             card.addEventListener('pointermove', function (e) {
                 var r = card.getBoundingClientRect();
                 var px = (e.clientX - r.left) / r.width, py = (e.clientY - r.top) / r.height;
+                var max = parseFloat(card.getAttribute('data-tilt-max') || '10');
                 card.style.transition = 'border-color .3s ease, box-shadow .3s ease';
-                card.style.transform = 'rotateX(' + ((.5 - py) * 10) + 'deg) rotateY(' + ((px - .5) * 12) + 'deg) translateZ(0)';
+                card.style.transform = 'perspective(1000px) rotateX(' + ((.5 - py) * max) + 'deg) rotateY(' + ((px - .5) * max * 1.2) + 'deg) translateZ(0)';
                 card.style.setProperty('--gx', px * 100 + '%');
                 card.style.setProperty('--gy', py * 100 + '%');
             });
@@ -429,6 +445,94 @@
                 row.style.setProperty('--my', (e.clientY - r.top) + 'px');
             });
         });
+    }
+
+    /* ------------------------------------------------------------
+       Photo: 3D tilt toward the cursor, gradient slab moves opposite
+    ------------------------------------------------------------ */
+    var fig = document.getElementById('heroFigure');
+    if (fig && finePointer && !reduced) {
+        var frameEl = fig.querySelector('.photo-frame');
+        var tx = 0, ty = 0, cxp = 0, cyp = 0;
+        window.addEventListener('pointermove', function (e) {
+            var r = fig.getBoundingClientRect();
+            tx = clamp((e.clientX - (r.left + r.width / 2)) / (window.innerWidth / 2), -1, 1);
+            ty = clamp((e.clientY - (r.top + r.height / 2)) / (window.innerHeight / 2), -1, 1);
+        }, { passive: true });
+        (function tiltLoop() {
+            cxp += (tx - cxp) * 0.08; cyp += (ty - cyp) * 0.08;
+            frameEl.style.transform = 'rotateY(' + (cxp * 12) + 'deg) rotateX(' + (-cyp * 10) + 'deg)';
+            fig.style.setProperty('--bx', (-cxp * 14) + 'px');
+            fig.style.setProperty('--by', (-cyp * 14) + 'px');
+            requestAnimationFrame(tiltLoop);
+        })();
+    }
+
+    /* ------------------------------------------------------------
+       Skills orbit: a draggable 3D carousel of logo tiles
+    ------------------------------------------------------------ */
+    var orbit = document.getElementById('orbit');
+    if (orbit) {
+        var oItems = Array.prototype.slice.call(orbit.querySelectorAll('.orbit-item'));
+        var N = oItems.length;
+        var angle = 0, vel = 0, BASE = reduced ? 0 : 0.004;
+        var Rx = 400, Ry = 70;
+        var dragging = false, lastX = 0, orbitVisible = true, lastScroll = window.scrollY;
+        function sizeOrbit() {
+            var w = orbit.clientWidth;
+            Rx = Math.min(w * 0.42, 520);
+            Ry = w < 560 ? 135 : Math.max(95, Math.min(150, w * 0.11));
+        }
+        function placeOrbit() {
+            for (var i = 0; i < N; i++) {
+                var a = angle + (i / N) * Math.PI * 2;
+                var depth = Math.cos(a);              // 1 = front, -1 = back
+                var f = (depth + 1) / 2;
+                var x = Math.sin(a) * Rx;
+                var y = depth * Ry;
+                var s = 0.55 + f * 0.5;
+                var el = oItems[i];
+                el.style.transform = 'perspective(800px) translate3d(' + x.toFixed(1) + 'px,' + y.toFixed(1) + 'px,0) rotateY(' + (Math.sin(a) * -38).toFixed(1) + 'deg) scale(' + s.toFixed(3) + ')';
+                el.style.opacity = (0.25 + f * 0.75).toFixed(3);
+                el.style.zIndex = String(500 + Math.round(depth * 100));
+                el.style.filter = depth < -0.3 ? 'blur(' + ((-depth - 0.3) * 2.2).toFixed(2) + 'px)' : 'none';
+            }
+        }
+        orbit.addEventListener('pointerdown', function (e) {
+            dragging = true; lastX = e.clientX; vel = 0;
+            orbit.classList.add('dragging');
+            orbit.setPointerCapture(e.pointerId);
+        });
+        orbit.addEventListener('pointermove', function (e) {
+            if (!dragging) return;
+            var dx = e.clientX - lastX; lastX = e.clientX;
+            var d = dx * 0.006;
+            angle += d; vel = d;
+            placeOrbit();
+        });
+        function endDrag() { dragging = false; orbit.classList.remove('dragging'); }
+        orbit.addEventListener('pointerup', endDrag);
+        orbit.addEventListener('pointercancel', endDrag);
+        window.addEventListener('scroll', function () {
+            var dy = window.scrollY - lastScroll; lastScroll = window.scrollY;
+            if (!reduced) vel += clamp(dy, -80, 80) * 0.00012;
+        }, { passive: true });
+        if ('IntersectionObserver' in window) {
+            new IntersectionObserver(function (en) { orbitVisible = en[0].isIntersecting; }).observe(orbit);
+        }
+        window.addEventListener('resize', function () { sizeOrbit(); placeOrbit(); });
+        sizeOrbit();
+        placeOrbit();
+        if (!reduced) {
+            (function spin() {
+                if (orbitVisible && !dragging) {
+                    vel += (BASE - vel) * 0.03;
+                    angle += vel;
+                    placeOrbit();
+                }
+                requestAnimationFrame(spin);
+            })();
+        }
     }
 
     /* ------------------------------------------------------------
