@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Rahul Ramesh Omalur</title>
-    <meta name="description" content="Rahul Ramesh Omalur is a Junior GenAI Engineer at Citi, building clinical ML, multi-agent LLM systems and edge computer vision. B.Tech in AI from IIIT Delhi.">
+    <meta name="description" content="Rahul Ramesh Omalur is a Junior GenAI Engineer at Citi, building clinical ML, multi-agent LLM systems and computer vision. B.Tech in AI from IIIT Delhi.">
     <meta property="og:title" content="Rahul Ramesh Omalur · ML Engineer">
     <meta property="og:description" content="Machine learning systems, from clinical prediction to multi-agent LLMs.">
     <meta property="og:url" content="https://rahulomalur.xyz/">
@@ -49,11 +49,11 @@
                 <span class="brand-name">Rahul Omalur</span>
             </a>
             <nav class="nav" id="nav" aria-label="Sections">
-                <a href="#work">Work</a>
                 <a href="#experience">Experience</a>
+                <a href="#education">Education</a>
+                <a href="#work">Projects</a>
                 <a href="#experiments">Experiments</a>
                 <a href="#toolkit">Toolkit</a>
-                <a href="#education">Education</a>
                 <a href="#contact">Contact</a>
             </nav>
             <div class="topbar-actions">
@@ -76,11 +76,11 @@
             <div class="hero-text">
                 <p class="eyebrow reveal"><span class="pulse" aria-hidden="true"></span>Junior GenAI Engineer at Citi</p>
                 <h1 class="reveal" aria-label="Rahul Ramesh Omalur builds machine learning systems that survive contact with real data.">
-                    <span aria-hidden="true">Rahul Ramesh Omalur builds <em class="rotator" id="rotator" data-words="machine learning systems|multi-agent LLMs|clinical ML models|edge computer vision|text-to-SQL agents">machine learning systems</em> that survive contact with real&nbsp;data.</span>
+                    <span aria-hidden="true">Rahul Ramesh Omalur builds <em class="rotator" id="rotator" data-words="machine learning systems|multi-agent LLMs|clinical ML models|real-time vision systems|text-to-SQL agents">machine learning systems</em> that survive contact with real&nbsp;data.</span>
                 </h1>
                 <p class="lede reveal">
                     I work across the stack, from clinical prediction on imbalanced hospital data to multi-agent
-                    LLM pipelines and computer vision quantized for a Raspberry&nbsp;Pi. I'm now a Junior GenAI Engineer at Citi,
+                    LLM pipelines and real-time computer vision. I'm now a Junior GenAI Engineer at Citi,
                     after a B.Tech in Artificial Intelligence at IIIT Delhi.
                 </p>
                 <div class="hero-cta reveal">
@@ -115,98 +115,18 @@
 
         <!-- Stat strip -->
         <section class="wrap stats reveal" aria-label="At a glance">
-            <div class="stat"><span class="stat-num" data-count="4">4</span><span class="stat-label">industry &amp; research roles</span></div>
-            <div class="stat"><span class="stat-num" data-count="9">9</span><span class="stat-label">projects &amp; experiments shipped</span></div>
+            <div class="stat"><span class="stat-num" data-count="2">2</span><span class="stat-label">industry &amp; research roles</span></div>
+            <div class="stat"><span class="stat-num" data-count="7">7</span><span class="stat-label">projects &amp; experiments shipped</span></div>
             <div class="stat"><span class="stat-num" data-count="8.69" data-decimals="2">8.69</span><span class="stat-label">CGPA, IIIT Delhi</span></div>
-            <div class="stat"><span class="stat-num"><span data-count="23.9" data-decimals="1">23.9</span><small>ms</small></span><span class="stat-label">edge inference, down from 51.7</span></div>
-        </section>
-
-        <!-- Selected work -->
-        <section id="work" class="wrap section">
-            <header class="section-head reveal">
-                <span class="section-num">§ 01</span>
-                <h2>Selected work</h2>
-                <p class="section-note">Larger builds, mostly team projects where I owned the modelling.</p>
-            </header>
-
-            <ol class="work-list">
-                <li class="work reveal">
-                    <div class="work-index mono">01</div>
-                    <div class="work-body">
-                        <h3>QUADRA <span class="muted">Intent-aware counterspeech generation</span></h3>
-                        <p>A modular counterspeech framework with a shared HateBERT encoder feeding four intent-specific BART decoders. I co-proposed DialoRank, a zero-shot reranker that beat DialoGPT by 12.1 ROUGE-1 points.</p>
-                        <ul class="tags"><li>HateBERT</li><li>BART</li><li>PyTorch</li><li>Hugging Face</li><li>NLP</li></ul>
-                        <div class="links">
-                            <a href="https://quadra-counterspeech.vercel.app/" target="_blank" rel="noopener">Report <span aria-hidden="true">↗</span></a>
-                            <a href="https://github.com/NLP-2025/NLP-Project-CounterSpeech" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
-                        </div>
-                    </div>
-                    <div class="work-metric"><span class="metric-num">0.871</span><span class="metric-label">BERTScore F1</span></div>
-                </li>
-
-                <li class="work reveal">
-                    <div class="work-index mono">02</div>
-                    <div class="work-body">
-                        <h3>SentinelAI <span class="muted">Multi-factor intrusion detection</span></h3>
-                        <p>Fuses face recognition (YuNet + SFace), ByteTrack person tracking and ST-GCN action recognition into one real-time threat score. ONNX quantization put it on a Raspberry Pi 4 and cut memory use by 40 to 55 percent.</p>
-                        <ul class="tags"><li>PyTorch</li><li>ONNX</li><li>OpenCV</li><li>Flask</li><li>Redis</li><li>MongoDB</li><li>Next.js</li></ul>
-                        <div class="links">
-                            <a href="https://github.com/rahulomalur/CV-Project-Intruder-Detection" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
-                        </div>
-                    </div>
-                    <div class="work-metric"><span class="metric-num">2.2×</span><span class="metric-label">faster on-device</span></div>
-                </li>
-
-                <li class="work reveal">
-                    <div class="work-index mono">03</div>
-                    <div class="work-body">
-                        <h3>Nexus Agent <span class="muted">AI analyst for network simulations</span></h3>
-                        <p>A natural-language interface over AstraSim simulation logs. Users query and chart thousand-run datasets without writing SQL, backed by schema-aware Text-to-SQL with Groq-powered self-correction.</p>
-                        <ul class="tags"><li>LangGraph</li><li>MCP</li><li>Groq</li><li>Flask</li><li>Next.js</li><li>SQLite</li></ul>
-                        <div class="links">
-                            <a href="https://nexusagent.rahulomalur.xyz/" target="_blank" rel="noopener">Live <span aria-hidden="true">↗</span></a>
-                            <a href="https://github.com/rahulomalur/nexus-agent" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
-                        </div>
-                    </div>
-                    <div class="work-metric"><span class="metric-num">90–100%</span><span class="metric-label">query accuracy</span></div>
-                </li>
-
-                <li class="work reveal">
-                    <div class="work-index mono">04</div>
-                    <div class="work-body">
-                        <h3>Probabilistic Pundit <span class="muted">Multi-agent FPL squad predictor</span></h3>
-                        <p>A hierarchical multi-agent LLM system for Fantasy Premier League that blends player stats with signals scraped from Reddit and the press. It outperformed Gemini 2.5 Flash, Kimi-k2 and a deterministic LP solver.</p>
-                        <ul class="tags"><li>LangChain</li><li>Groq</li><li>TOPSIS</li><li>FastAPI</li><li>Streamlit</li></ul>
-                        <div class="links">
-                            <a href="https://probabilistic-pundit.streamlit.app" target="_blank" rel="noopener">Live <span aria-hidden="true">↗</span></a>
-                            <a href="https://github.com/Rahul14052004/probabilistic-pundit" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
-                        </div>
-                    </div>
-                    <div class="work-metric"><span class="metric-num">90%+</span><span class="metric-label">point potential kept after filtering</span></div>
-                </li>
-
-                <li class="work reveal">
-                    <div class="work-index mono">05</div>
-                    <div class="work-body">
-                        <h3>SmartReach AI <span class="muted">Email campaign platform</span></h3>
-                        <p>AI-driven email automation that pairs Mistral and Gemma in a RAG pipeline, with XGBoost-powered send-time optimization. Celery and Redis handle scheduling behind a Next.js analytics front end.</p>
-                        <ul class="tags"><li>Django</li><li>Next.js</li><li>RAG</li><li>XGBoost</li><li>Celery</li><li>Redis</li></ul>
-                        <div class="links">
-                            <a href="https://smartreachai.rahulomalur.xyz/" target="_blank" rel="noopener">Live <span aria-hidden="true">↗</span></a>
-                            <a href="https://github.com/SDOS-2025/SmartReach-AI" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
-                        </div>
-                    </div>
-                    <div class="work-metric"><span class="metric-num">2</span><span class="metric-label">LLMs in one RAG loop</span></div>
-                </li>
-            </ol>
+            <div class="stat"><span class="stat-num" data-count="0.93" data-decimals="2">0.93</span><span class="stat-label">F1 on heart-disease prediction at TCS</span></div>
         </section>
 
         <!-- Experience -->
         <section id="experience" class="wrap section">
             <header class="section-head reveal">
-                <span class="section-num">§ 02</span>
+                <span class="section-num">§ 01</span>
                 <h2>Experience</h2>
-                <p class="section-note">Research labs and industry, most recent first.</p>
+                <p class="section-note">Industry and research, most recent first.</p>
             </header>
 
             <div class="xp-list"><span class="xp-rail" aria-hidden="true"><span class="xp-rail-fill" id="xpRail"></span></span>
@@ -218,22 +138,6 @@
                     <div class="xp-body">
                         <h3><a href="https://www.citigroup.com" target="_blank" rel="noopener">Citi <span aria-hidden="true">↗</span></a></h3>
                         <p class="xp-role">Junior GenAI Engineer</p>
-                    </div>
-                </article>
-
-                <article class="xp reveal">
-                    <div class="xp-meta">
-                        <span class="mono">Jan – May 2026</span>
-                        <span class="muted">New Delhi</span>
-                    </div>
-                    <div class="xp-body">
-                        <h3><a href="https://tavlab.iiitd.edu.in" target="_blank" rel="noopener">TavLab, IIIT Delhi <span aria-hidden="true">↗</span></a></h3>
-                        <p class="xp-role">Undergraduate Researcher</p>
-                        <ul>
-                            <li>Benchmarked modern vision-language models, zero-shot, on digitizing handwritten medical prescriptions and extracting antibiotic entities.</li>
-                            <li>Built a <strong>1,115-image</strong> augmented benchmark from 223 real prescriptions, stress-testing against blur, compression and geometric distortion.</li>
-                            <li>Showed binary accuracy misleads on this task and proposed WAnIOU instead. It exposed GLM-OCR scoring <strong>≤ 0.04</strong> despite 44.93% accuracy.</li>
-                        </ul>
                     </div>
                 </article>
 
@@ -253,28 +157,100 @@
                     </div>
                 </article>
 
-                <article class="xp reveal">
-                    <div class="xp-meta">
-                        <span class="mono">May – Jul 2024</span>
-                        <span class="muted">Bangalore</span>
-                    </div>
-                    <div class="xp-body">
-                        <h3>CodePlex Technologies</h3>
-                        <p class="xp-role">Software Engineer Intern</p>
-                        <ul>
-                            <li>Built AutoImporter, a self-serve Laravel and MySQL app that scrapes and stores user-submitted obituaries.</li>
-                            <li>Migrated data from legacy websites with the Simple HTML DOM Parser toolkit.</li>
-                            <li>Fixed conversion anomalies for Tribute Technologies so unstructured data landed in clean, structured form.</li>
-                        </ul>
-                    </div>
-                </article>
             </div>
+        </section>
+
+        <!-- Education -->
+        <section id="education" class="wrap section">
+            <header class="section-head reveal">
+                <span class="section-num">§ 02</span>
+                <h2>Education</h2>
+            </header>
+
+            <div class="edu-list">
+                <a class="edu reveal" href="https://iiitd.ac.in" target="_blank" rel="noopener">
+                    <img src="assets/img/iiitd_logo.png" alt="" class="edu-logo" loading="lazy">
+                    <div class="edu-body">
+                        <h3>B.Tech, Artificial Intelligence</h3>
+                        <p>Indraprastha Institute of Information Technology, Delhi</p>
+                    </div>
+                    <div class="edu-meta"><span class="mono">2022 – 2026</span><span class="pill">CGPA 8.69</span></div>
+                </a>
+                <a class="edu reveal" href="https://gosbangalore.edu.in/" target="_blank" rel="noopener">
+                    <img src="assets/img/geetanjali.png" alt="" class="edu-logo" loading="lazy">
+                    <div class="edu-body">
+                        <h3>CBSE, Computer Science</h3>
+                        <p>Geetanjali Olympiad School</p>
+                    </div>
+                    <div class="edu-meta"><span class="mono">2020 – 2022</span><span class="pill">95%</span></div>
+                </a>
+                <a class="edu reveal" href="https://east.dpsbangalore.edu.in/" target="_blank" rel="noopener">
+                    <img src="assets/img/dps.png" alt="" class="edu-logo" loading="lazy">
+                    <div class="edu-body">
+                        <h3>CBSE, Computer Science</h3>
+                        <p>Delhi Public School</p>
+                    </div>
+                    <div class="edu-meta"><span class="mono">2010 – 2020</span><span class="pill">92%</span></div>
+                </a>
+            </div>
+        </section>
+
+        <!-- Projects -->
+        <section id="work" class="wrap section">
+            <header class="section-head reveal">
+                <span class="section-num">§ 03</span>
+                <h2>Projects</h2>
+                <p class="section-note">Team builds, so the credit is shared.</p>
+            </header>
+
+            <ol class="work-list">
+                <li class="work reveal">
+                    <div class="work-index mono">01</div>
+                    <div class="work-body">
+                        <h3>SmartReach AI <span class="muted">Email campaign platform</span></h3>
+                        <p>We built an AI-driven email automation platform that pairs Mistral and Gemma in a RAG pipeline, with XGBoost-powered send-time optimization. Celery and Redis handle our scheduling behind a Next.js analytics front end.</p>
+                        <ul class="tags"><li>Django</li><li>Next.js</li><li>RAG</li><li>XGBoost</li><li>Celery</li><li>Redis</li></ul>
+                        <div class="links">
+                            <a href="https://smartreachai.rahulomalur.xyz/" target="_blank" rel="noopener">Live <span aria-hidden="true">↗</span></a>
+                            <a href="https://github.com/SDOS-2025/SmartReach-AI" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="work-metric"><span class="metric-num">2</span><span class="metric-label">LLMs in one RAG loop</span></div>
+                </li>
+
+                <li class="work reveal">
+                    <div class="work-index mono">02</div>
+                    <div class="work-body">
+                        <h3>SentinelAI <span class="muted">Multi-factor intrusion detection</span></h3>
+                        <p>We fused face recognition (YuNet + SFace), ByteTrack person tracking and ST-GCN action recognition into a single real-time threat score, with a Next.js dashboard for monitoring.</p>
+                        <ul class="tags"><li>PyTorch</li><li>OpenCV</li><li>Flask</li><li>Redis</li><li>MongoDB</li><li>Next.js</li></ul>
+                        <div class="links">
+                            <a href="https://github.com/rahulomalur/CV-Project-Intruder-Detection" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="work-metric"><span class="metric-num">3</span><span class="metric-label">models fused into one threat score</span></div>
+                </li>
+
+                <li class="work reveal">
+                    <div class="work-index mono">03</div>
+                    <div class="work-body">
+                        <h3>Nexus Agent <span class="muted">AI analyst for network simulations</span></h3>
+                        <p>We built a natural-language interface over AstraSim simulation logs, so users can query and chart thousand-run datasets without writing SQL. It runs on schema-aware Text-to-SQL with Groq-powered self-correction.</p>
+                        <ul class="tags"><li>LangGraph</li><li>MCP</li><li>Groq</li><li>Flask</li><li>Next.js</li><li>SQLite</li></ul>
+                        <div class="links">
+                            <a href="https://nexusagent.rahulomalur.xyz/" target="_blank" rel="noopener">Live <span aria-hidden="true">↗</span></a>
+                            <a href="https://github.com/rahulomalur/nexus-agent" target="_blank" rel="noopener">Code <span aria-hidden="true">↗</span></a>
+                        </div>
+                    </div>
+                    <div class="work-metric"><span class="metric-num">90–100%</span><span class="metric-label">query accuracy</span></div>
+                </li>
+            </ol>
         </section>
 
         <!-- Experiments -->
         <section id="experiments" class="wrap section">
             <header class="section-head reveal">
-                <span class="section-num">§ 03</span>
+                <span class="section-num">§ 04</span>
                 <h2>Experiments</h2>
                 <p class="section-note">Smaller studies, benchmarks and weekend builds.</p>
             </header>
@@ -328,7 +304,7 @@
         <!-- Toolkit -->
         <section id="toolkit" class="wrap section">
             <header class="section-head reveal">
-                <span class="section-num">§ 04</span>
+                <span class="section-num">§ 05</span>
                 <h2>Toolkit</h2>
                 <p class="section-note">What I reach for, grouped by job.</p>
             </header>
@@ -355,41 +331,6 @@
                     <dd><ul class="tags"><li>Docker</li><li>PostgreSQL</li><li>Redis</li><li>Celery</li><li>Git</li></ul></dd>
                 </div>
             </dl>
-        </section>
-
-        <!-- Education -->
-        <section id="education" class="wrap section">
-            <header class="section-head reveal">
-                <span class="section-num">§ 05</span>
-                <h2>Education</h2>
-            </header>
-
-            <div class="edu-list">
-                <a class="edu reveal" href="https://iiitd.ac.in" target="_blank" rel="noopener">
-                    <img src="assets/img/iiitd_logo.png" alt="" class="edu-logo" loading="lazy">
-                    <div class="edu-body">
-                        <h3>B.Tech, Artificial Intelligence</h3>
-                        <p>Indraprastha Institute of Information Technology, Delhi</p>
-                    </div>
-                    <div class="edu-meta"><span class="mono">2022 – 2026</span><span class="pill">CGPA 8.69</span></div>
-                </a>
-                <a class="edu reveal" href="https://gosbangalore.edu.in/" target="_blank" rel="noopener">
-                    <img src="assets/img/geetanjali.png" alt="" class="edu-logo" loading="lazy">
-                    <div class="edu-body">
-                        <h3>CBSE, Computer Science</h3>
-                        <p>Geetanjali Olympiad School</p>
-                    </div>
-                    <div class="edu-meta"><span class="mono">2020 – 2022</span><span class="pill">95%</span></div>
-                </a>
-                <a class="edu reveal" href="https://east.dpsbangalore.edu.in/" target="_blank" rel="noopener">
-                    <img src="assets/img/dps.png" alt="" class="edu-logo" loading="lazy">
-                    <div class="edu-body">
-                        <h3>CBSE, Computer Science</h3>
-                        <p>Delhi Public School</p>
-                    </div>
-                    <div class="edu-meta"><span class="mono">2010 – 2020</span><span class="pill">92%</span></div>
-                </a>
-            </div>
         </section>
 
         <!-- Contact -->
