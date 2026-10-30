@@ -1013,3 +1013,4 @@ h3 { font-weight: 500; letter-spacing: -.01em; }
     .marquee-track, .contact-card::after, .contact-card::before, .scroll-line::after { animation: none !important; }
     .js .toolkit .tags li { opacity: 1; transform: none; }
 }
+.xp-meta .pill { align-self: flex-start; margin-top: 4px; }
